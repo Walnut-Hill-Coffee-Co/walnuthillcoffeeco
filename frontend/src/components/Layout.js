@@ -17,22 +17,22 @@ const FooterStyles = styled.footer`
     width: 90%;
     max-width: var(--maxWidth);
     margin: 0 auto;
-    display: grid;
-    grid-gap: 2rem;
+
     color: white;
     @media screen and (min-width: 768px) {
+      display: grid;
+      grid-gap: 2rem;
       grid-template-columns: 1fr 1fr;
-    }
 
-    /* .gatsby-image-wrapper {
-      grid-column: 1/-1;
-    } */
+      h5 {
+        margin-top: 0;
+      }
+    }
 
     h5 {
       text-transform: uppercase;
       color: white;
       letter-spacing: 1px;
-      margin-top: 0;
       text-align: center;
     }
 
