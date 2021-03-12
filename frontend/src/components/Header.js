@@ -49,10 +49,10 @@ const StyledHeader = styled.header`
 
       li {
         letter-spacing: 0.5px;
-        border-top: 1px solid var(--lightGray);
+        border-bottom: 1px solid var(--lightGray);
         line-height: calc(var(--lineHeight) / 1.5);
         text-transform: lowercase;
-        transition: border 200ms ease;
+        transition: border 1000ms ease color 1000ms ease-in;
         &:not(:last-of-type) {
           margin-right: 2rem;
         }
@@ -74,9 +74,9 @@ const StyledHeader = styled.header`
 export default function Header() {
   return (
     <StyledHeader>
-      <div>
-        <StaticImage src="../images/whcc-circle.svg" height={75} placeholder="blurred" alt="logo" layout="fixed" />
-      </div>
+      <UniversalLink to="/">
+        <StaticImage src="../images/logo.png" width={200} placeholder="blurred" alt="logo" layout="fixed" />
+      </UniversalLink>
       <nav>
         <ul>
           {navLinks.map(({ name, to }) => (
