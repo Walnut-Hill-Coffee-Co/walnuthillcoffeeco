@@ -10,6 +10,7 @@ const ButtonStyles = styled(UniversalLink)`
     padding: 1rem 3rem;
     display: flex;
     justify-content: center;
+    border-radius: 3px;
     align-items: center;
     max-width: max-content;
     position: relative;
@@ -37,12 +38,16 @@ const ButtonStyles = styled(UniversalLink)`
     &:focus {
       filter: brightness(85%) invert(100%);
     }
+
+    &--small {
+      padding: 0.75rem 2rem;
+    }
   }
 `;
 
-export default function Button({ to, children, className, buttonStyle }) {
+export default function Button({ to, children, className, buttonStyle, size = '' }) {
   return (
-    <ButtonStyles to={to} className={`btn btn__${className} btn--${buttonStyle}`}>
+    <ButtonStyles to={to} className={`btn btn__${className} btn--${size} btn--${buttonStyle}`}>
       {children}
     </ButtonStyles>
   );

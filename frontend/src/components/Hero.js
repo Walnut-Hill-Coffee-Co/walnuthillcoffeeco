@@ -27,8 +27,9 @@ const HeroStyles = styled.div`
 
     h1 {
       margin: 0;
-      line-height: calc(var(--lineHeight) / 1.5);
+      line-height: calc(var(--lineHeight) / 1.25);
       text-align: center;
+      font-size: 2.441rem;
       color: var(--offWhite);
     }
   }
@@ -53,9 +54,12 @@ export default function Hero() {
       <HeroStyles>
         <GatsbyImage image={image} loading="eager" alt="friends enjoying coffee" />
         <div className="inner-content">
-          <h1>Handcrafted coffee, made with love.</h1>
+          <h1>
+            Handcrafted coffee
+            <br /> made with love.
+          </h1>
           {/*  <StaticImage src="../images/logo.png" alt="logo" layout="constrained" width={300} /> */}
-          <Button to="/menu/" type="button" buttonStyle="primary" style={{ background: 'red' }}>
+          <Button size="small" to="/menu/" type="button" buttonStyle="primary" style={{ background: 'red' }}>
             View Menu
           </Button>
         </div>

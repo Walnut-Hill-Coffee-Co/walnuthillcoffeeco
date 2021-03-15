@@ -37,19 +37,22 @@ const StyledHeader = styled.header`
   align-items: start;
   padding: 0 4rem;
   > nav {
-    flex: 1;
+    /* flex: 1; */
+    margin-left: 1rem;
 
     > ul {
       justify-content: end;
       margin: 0;
+      margin-top: 1rem;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
       list-style: none;
+      gap: 1rem;
 
       li {
         letter-spacing: 0.5px;
-        border-bottom: 1px solid var(--lightGray);
+        border-top: 1px solid var(--lightGray);
         line-height: calc(var(--lineHeight) / 1.5);
         text-transform: lowercase;
         transition: border 1000ms ease color 1000ms ease-in;

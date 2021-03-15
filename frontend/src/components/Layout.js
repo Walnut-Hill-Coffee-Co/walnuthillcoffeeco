@@ -13,51 +13,67 @@ const FooterStyles = styled.footer`
   padding-top: 10vh;
   padding-bottom: 5vh;
   background-color: var(--black);
-  > div {
+  > .inner-content {
     width: 90%;
     max-width: var(--maxWidth);
     margin: 0 auto;
-
     color: white;
-    @media screen and (min-width: 768px) {
-      display: grid;
-      grid-gap: 2rem;
-      grid-template-columns: 1fr 1fr;
-
-      h5 {
-        margin-top: 0;
-      }
-    }
-
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     h5 {
-      text-transform: uppercase;
-      color: white;
+      margin: 0;
+      /* text-transform: uppercase; */
       letter-spacing: 1px;
       text-align: center;
+    }
+
+    @media all and (min-width: 768px) {
+      align-items: flex-start;
     }
 
     .social-icons {
       display: flex;
       gap: 2rem;
       justify-content: center;
-
+      align-items: center;
+      margin-top: 2rem;
       a {
+        display: flex;
+        align-items: center;
         font-size: 3rem;
         color: white;
       }
     }
 
     .contact-box {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      grid-column-start: 2;
-      grid-row: 1 / span 2;
-
-      p {
-        margin: 2rem 0;
+      justify-content: center;
+      h5 {
+        margin-top: 0;
+        margin-bottom: 2rem;
       }
+      p {
+      }
+      a {
+        margin: auto;
+        display: block;
+      }
+
+      /* @media all and (min-width: 768px) {
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+        h5 {
+          width: 100%;
+          margin-top: 0;
+        }
+      } */
     }
   }
 `;
@@ -196,7 +212,7 @@ export default function Layout({ children }) {
       <Header />
       <main>{children}</main>
       <FooterStyles>
-        <div>
+        <div className="inner-content">
           <StaticImage src="../images/logo.png" width={300} layout="fixed" />
           <div className="social-box">
             <h5>Follow us.</h5>

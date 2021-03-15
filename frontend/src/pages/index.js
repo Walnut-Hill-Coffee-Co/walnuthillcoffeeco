@@ -16,6 +16,27 @@ export const Container = styled.div`
     margin-bottom: 20rem;
     max-width: 90ch;
     margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+      max-width: 65ch;
+    }
+  }
+
+  .store-hours {
+    /* background: red; */
+    padding: 20vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      margin-top: 0;
+      letter-spacing: 1px;
+    }
+    p {
+      margin: 0;
+    }
   }
 `;
 const StyledH1 = styled.h1`
@@ -34,6 +55,7 @@ const ServicesStyles = styled.section`
   }
   p {
     margin: 2rem 0;
+
     max-width: 100ch;
   }
   .full-width {
@@ -50,7 +72,7 @@ const ServicesStyles = styled.section`
       display: flex;
       flex-direction: column;
       align-items: start;
-      justify-content: start;
+      justify-content: center;
     }
   }
 
@@ -62,6 +84,11 @@ const ServicesStyles = styled.section`
       width: 100%;
     }
     .content {
+      display: flex;
+      flex-direction: column;
+      p {
+        flex: 1;
+      }
       a {
         display: inline-block;
       }
@@ -86,17 +113,13 @@ const ServicesStyles = styled.section`
       }
     }
   }
-
-  article {
-  }
 `;
 
 const MissionStyles = styled.section`
   min-height: 70vh;
   margin-top: 10rem;
   position: relative;
-  display: flex;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
 
   > .gatsby-image-wrapper {
     height: 100%;
@@ -109,10 +132,7 @@ const MissionStyles = styled.section`
     min-height: 70vh;
     position: relative;
     width: 100%;
-    display: flex;
     color: white;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     max-width: var(--maxWidth);
     margin: 0 auto;
@@ -120,13 +140,9 @@ const MissionStyles = styled.section`
     @media screen and (min-width: 768px) {
       padding: 4rem;
     }
-    @media screen and (min-width: 1000px) {
-      justify-content: space-between;
-    }
 
     > article {
       align-self: flex-start;
-      background: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
       padding: 2rem;
       box-shadow: var(--bs);
@@ -163,8 +179,8 @@ const AboutStyles = styled.section`
 
   p {
     margin: unset;
-    max-width: 80ch;
-    margin-bottom: 4rem;
+    max-width: 60ch;
+    margin-bottom: 3rem;
   }
   > div {
     display: grid;
@@ -174,15 +190,15 @@ const AboutStyles = styled.section`
       grid-template-columns: 2fr 1fr;
       grid-auto-rows: max-content;
       row-gap: 0;
+
+      > .content {
+        display: grid;
+        align-items: center;
+      }
       .team-photo {
         grid-column: 2;
-        grid-row: 1 / span 2;
-        align-self: start;
+        align-self: stretch;
       }
-    }
-
-    > div {
-      align-self: flex-start;
     }
 
     h2 {
@@ -271,8 +287,14 @@ export default function IndexPage() {
           </article>
           <article className="full-width">
             <div className="content">
-              <h2>Blooms to brighten your day.</h2>
-              <p>Come shop our selection of locally grown cut flowers. Available in our shop each week.</p>
+              <h2>
+                Blooms to <br />
+                brighten your day.
+              </h2>
+              <p>
+                Come shop our selection of locally grown cut flowers. <br />
+                Available in our shop each week.
+              </p>
               <Button buttonStyle="dark">Learn more</Button>
             </div>
             <GatsbyImage className="photo" image={flowerImage} alt="fresh cut flowers" height={500} />
@@ -281,18 +303,15 @@ export default function IndexPage() {
             <GatsbyImage className="photo" image={merchImage} alt="walnut hill coffee co merch" height={500} />
 
             <div className="content">
-              <h2>Stay foxy with new merch.</h2>
-              <p>Check out our latest t-shirts, sweatshirts, mugs, coffee & more.</p>
+              <h2>
+                Stay foxy <br /> with new merch.
+              </h2>
+              <p>
+                Check out our latest t-shirts, <br />
+                sweatshirts, mugs, coffee & more.
+              </p>
               <Button buttonStyle="dark">Shop now</Button>
             </div>
-          </article>
-          <article className="full-width">
-            <div className="content">
-              <h2>Our home is your home.</h2>
-              <p>We love a good get-together. Our space is available for parties and events of all kinds.</p>
-              <Button buttonStyle="dark">Reserve now</Button>
-            </div>
-            <GatsbyImage className="photo" image={venueImage} alt="interior of coffeeshop" height={500} />
           </article>
           <article className="single-column">
             <div className="photo">
@@ -313,37 +332,29 @@ export default function IndexPage() {
             </div>
 
             <div className="content">
-              <h2>Our home is your home.</h2>
+              <h2>
+                Our home <br /> is your home.
+              </h2>
               <p>We love a good get-together. Our space is available for parties and events of all kinds.</p>
               <Button buttonStyle="dark">Reserve now</Button>
             </div>
           </article>
         </ServicesStyles>
       </Container>
-      <MissionStyles>
-        <GatsbyImage image={missionImage} alt="Coffee beans and ground coffee on a wood countertop" />
-        <div className="mission-content">
-          <article>
-            <h2>Our Mission</h2>
-            <p>
-              At Walnut Hill Coffee Co., our goal is simple: serving others well. Impacting both guests and co-workers
-              positively through cultivating conversation and connection day to day.{' '}
-            </p>
-          </article>
-          <div>
-            <h5>Operating Hours</h5>
-            <p>
-              <strong>Monday - Friday:</strong> 8AM - 5PM
-            </p>
-            <p>
-              <strong>Saturday:</strong> 8AM - 7PM
-            </p>
-          </div>
+      <Container>
+        <div className="store-hours">
+          <h3>Operating hours.</h3>
+          <p>
+            <strong>Monday - Friday:</strong> 8AM - 5PM
+          </p>
+          <p>
+            <strong>Saturday:</strong> 8AM - 7PM
+          </p>
         </div>
-      </MissionStyles>
+      </Container>
       <AboutStyles>
         <Container>
-          <div>
+          <div className="content">
             <h2>Who are we?</h2>
             <p>
               Our journey began in a little white truck, summer of 2019, as homegrown baristas with wild dreams and
@@ -355,6 +366,18 @@ export default function IndexPage() {
           <GatsbyImage className="team-photo" image={teamImage} alt="Crista Rogers" />
         </Container>
       </AboutStyles>
+      <MissionStyles>
+        <GatsbyImage image={missionImage} alt="Coffee beans and ground coffee on a wood countertop" />
+        <div className="mission-content">
+          <article>
+            <h2>Our mission.</h2>
+            <p>
+              At Walnut Hill Coffee Co., our goal is simple: serving others well. Impacting both guests and co-workers
+              positively through cultivating conversation and connection day to day.{' '}
+            </p>
+          </article>
+        </div>
+      </MissionStyles>
     </Layout>
   );
 }
