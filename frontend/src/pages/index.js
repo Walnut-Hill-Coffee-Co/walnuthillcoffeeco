@@ -333,7 +333,7 @@ export default function IndexPage() {
 
             <div className="content">
               <h2>
-                Our home <br /> is your home.
+                Our home is your home.
               </h2>
               <p>We love a good get-together. Our space is available for parties and events of all kinds.</p>
               <Button buttonStyle="dark">Reserve now</Button>
