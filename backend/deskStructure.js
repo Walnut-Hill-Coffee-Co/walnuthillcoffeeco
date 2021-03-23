@@ -2,11 +2,11 @@ import S from "@sanity/desk-tool/structure-builder";
 import { FcHome } from "react-icons/fc";
 import { GoSettings } from "react-icons/go";
 import landingPages from './src/structure/landingPages';
+import services from "./src/structure/services";
 const hiddenDocTypes = (listItem) => {
   ![
     "route",
     "navigationMenu",
-    "post",
     "page",
     "siteSettings",
     "author",
@@ -36,5 +36,6 @@ export default () =>
             .documentId('homePage')
         ),
       landingPages,
+      services,
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);

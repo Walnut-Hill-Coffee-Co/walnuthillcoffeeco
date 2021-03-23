@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import navMenu from './documents/navMenu'
 import page from './documents/page'
 import route from './documents/route'
+import service from './documents/service'
 import siteSettings from './documents/siteSettings'
 import linkCreator from './objects/linkCreator'
 import mainImage from './objects/mainImage'
@@ -25,7 +26,8 @@ export default createSchema({
     page,
     navMenu,
     route,
-    linkCreator
+    linkCreator,
+    service
 
   ]),
 })
