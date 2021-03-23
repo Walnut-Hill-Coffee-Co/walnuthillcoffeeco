@@ -2,7 +2,11 @@
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import createSchema from 'part:@sanity/base/schema-creator'
+import navMenu from './documents/navMenu'
+import page from './documents/page'
+import route from './documents/route'
 import siteSettings from './documents/siteSettings'
+import linkCreator from './objects/linkCreator'
 import mainImage from './objects/mainImage'
 import openGraph from './objects/openGraph'
 import socialLink from './objects/socialLink'
@@ -18,7 +22,10 @@ export default createSchema({
     socialLink,
     openGraph,
     mainImage,
-
+    page,
+    navMenu,
+    route,
+    linkCreator
 
   ]),
 })
