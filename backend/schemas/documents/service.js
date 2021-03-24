@@ -1,11 +1,29 @@
-import SlugInput from 'sanity-plugin-better-slug';
-import { customSlugify } from '../../src/utils';
+import { FaBarcode } from "react-icons/fa";
+import { customSlugify } from "../../src/utils/customSlugify";
 export default {
   type: "document",
   name: "service",
   title: "Services",
-  // icon: FaBarcode,
+  icon: FaBarcode,
+  preview: {
+    select: {
+      title: "title",
+      media: "featuredImage",
+      subtitle: "serviceLink.current",
+    },
+    prepare: ({ title, media, subtitle }) => {
+      return {
+        title,
+        media: media?.image || "",
+        subtitle: `Route: ${subtitle}`,
+      };
+    },
+  },
   fields: [
+    {
+      type: "illustration",
+      name: "featuredImage",
+    },
     {
       type: "text",
       name: "title",
@@ -31,15 +49,13 @@ export default {
         "Add a catchy excerpt. You can split onto up to 3 lines if desired.",
     },
     {
-      name: 'serviceLink',
-      type: 'slug',
-      inputComponent: SlugInput,
+      name: "serviceLink",
+      type: "slug",
       options: {
         maxLength: 50,
-        source: 'title',
-        basePath: '/services',
+        source: (doc) => `/services/${doc.title}`,
         slugify: customSlugify
-      }
-    }
+      },
+    },
   ],
 };

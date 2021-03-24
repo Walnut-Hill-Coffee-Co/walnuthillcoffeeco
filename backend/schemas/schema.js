@@ -7,10 +7,18 @@ import page from './documents/page'
 import route from './documents/route'
 import service from './documents/service'
 import siteSettings from './documents/siteSettings'
+import bodyPortableText from './objects/bodyPortableText'
 import linkCreator from './objects/linkCreator'
 import mainImage from './objects/mainImage'
 import openGraph from './objects/openGraph'
 import socialLink from './objects/socialLink'
+import * as plugs from './plugs'
+// import all plugs
+import plugDefaultFields from './plugs/_plugDefaultFields'
+
+const allPlugs = Object.values(plugs).map((plug) => {
+  return {...plug, fields: plugDefaultFields.concat(plug.fields)}
+})
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -27,7 +35,8 @@ export default createSchema({
     navMenu,
     route,
     linkCreator,
-    service
+    service,
+    bodyPortableText
 
-  ]),
+  ]).concat(allPlugs),
 })

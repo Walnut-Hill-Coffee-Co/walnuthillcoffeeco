@@ -20,7 +20,7 @@ export default {
       name: 'sitePageRoute',
       type: 'reference',
       fieldset: 'link',
-      to: [{ type: 'route' }]
+      to: [{ type: 'route' }, {type: 'service'}]
     },
     {
       title: 'Path',

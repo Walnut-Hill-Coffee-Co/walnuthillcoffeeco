@@ -16,5 +16,14 @@ export default {
       to: [{type: 'navigationMenu'}],
       description: 'Which nav menu should be shown if any'
     }
+  ,
+  {
+    name: 'content',
+    type: 'object',
+    title: 'Page Content',
+    fields: [
+      {name: 'content', type: 'bodyPortableText'}
+    ]
+  }
   ]
 }
