@@ -1,6 +1,6 @@
 export default [
-  {
-    type: 'boolean',
-    name: 'disabled'
-  }
+  // {
+  //   type: 'boolean',
+  //   name: 'disabled'
+  // }
 ]

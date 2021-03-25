@@ -2,6 +2,7 @@
 export default {
   name: 'bodyPortableText',
   type: 'array',
+  editModal: 'fullscreen',
   of: [
     {
       type: 'block',
