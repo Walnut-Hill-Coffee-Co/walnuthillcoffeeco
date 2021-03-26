@@ -1,7 +1,7 @@
 export default {
   title: 'Brand Colors',
   type: 'object',
-  name: 'colorList',
+  name: 'colorListing',
   fields: [
     {
       type: 'colorlist',

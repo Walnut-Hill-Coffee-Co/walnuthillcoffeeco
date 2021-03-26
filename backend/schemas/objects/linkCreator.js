@@ -50,22 +50,22 @@ export default {
     {
       title: 'Background Color',
       name: 'backgroundColor',
-      type: 'colorList'
+      type: 'colorListing'
     }
   ],
   preview: {
     select: {
       title: 'title',
-      landingPage: 'sitePageRoute',
+      landingPage: 'sitePageRoute.serviceLink.current',
       route: 'route',
       link: 'link',
-      backgroundColor: 'backgroundColor.colors.value'
+      backgroundColor: 'backgroundColor'
     },
     prepare({ title, landingPage,backgroundColor, route, link }) {
       let subtitle = 'Not set'
-
+      let realBackgroundColor = backgroundColor?.colors?.value ?? 'white'
       if (landingPage) {
-        subtitle = `Route: /${landingPage}`
+        subtitle = `Route: ${landingPage}`
       }
       if (route) {
         subtitle = `Route: ${route}`
@@ -76,7 +76,7 @@ export default {
       return {
         title,
         subtitle,
-        media: <div style={{backgroundColor, height: `100%`, borderRadius: `100%`}} />
+        media: <div style={{backgroundColor: realBackgroundColor, height: `100%`, borderRadius: `100%`}} />
       }
     }
   }

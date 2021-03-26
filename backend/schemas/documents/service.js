@@ -49,7 +49,7 @@ export default {
         "Add a catchy excerpt. You can split onto up to 3 lines if desired.",
     },
     {
-      name: "serviceLink",
+      name: "slug",
       type: "slug",
       options: {
         maxLength: 50,

@@ -1,3 +1,5 @@
+import { customSlugify } from "../../src/utils/customSlugify";
+
 export default {
   type: "document",
   name: "page",
@@ -7,6 +9,15 @@ export default {
       name: "title",
       type: "string",
       title: "Title",
+    },
+    {
+      name: "slug",
+      type: "slug",
+      options: {
+        maxLength: 50,
+        source: (doc) => `/${doc.title}`,
+        slugify: customSlugify,
+      },
     },
     {
       name: "navMenu",
@@ -21,7 +32,7 @@ export default {
       type: "array",
       title: "Page Content",
       description: "Add, edit, and reorder sections",
-      of: [{ type: "hero" }, { type: "bodySection" }, { type: "gridContent" }],
+      of: [{ type: "hero" }, { type: "bodySection" }, { type: "gridContent" }, {type: 'uiComponentRef'}],
     },
   ],
 };
