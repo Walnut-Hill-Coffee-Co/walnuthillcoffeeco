@@ -29,7 +29,8 @@
     "react": "^17.0",
     "react-dom": "^17.0",
     "react-icons": "^4.2.0",
-    "sanity-plugin-better-slug": "^1.0.0"
+    "sanity-plugin-better-slug": "^1.0.0",
+    "sanity-plugin-color-list": "^2.0.1"
   },
   "devDependencies": {}
 }

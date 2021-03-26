@@ -57,5 +57,10 @@ export default {
         slugify: customSlugify
       },
     },
+    {
+      name: 'description',
+      type: 'gridContent',
+      title: 'Page Content'
+    }
   ],
 };

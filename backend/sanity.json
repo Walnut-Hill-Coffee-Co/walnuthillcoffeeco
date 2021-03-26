@@ -15,7 +15,8 @@
     "@sanity/desk-tool",
     "@sanity/color-input",
     "better-slug",
-    "@sanity/google-maps-input"
+    "@sanity/google-maps-input",
+    "color-list"
   ],
   "env": {
     "development": {
@@ -35,7 +36,11 @@
     },
     {
       "implements": "part:@sanity/base/brand-logo",
-      "path": "./components/brand-logo"
+      "path": "./src/components/brand-logo"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "./src/styles/variables.css"
     }
   ]
 }

@@ -1,4 +1,4 @@
-
+import { AiOutlineLink } from 'react-icons/ai'
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -27,6 +27,11 @@ export default {
         hotspot: true
       }
     },
+    {
+      type: 'linkCreator',
+      title: 'Button',
+      icon: AiOutlineLink
+    }
 
   ]
 }

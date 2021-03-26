@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
   title: 'Link',
   name: 'linkCreator',
@@ -20,7 +22,7 @@ export default {
       name: 'sitePageRoute',
       type: 'reference',
       fieldset: 'link',
-      to: [{ type: 'route' }, {type: 'service'}]
+      to: [{ type: 'route' }, {type: 'service'}, {type: 'page'}, {type: 'event'}]
     },
     {
       title: 'Path',
@@ -44,17 +46,24 @@ export default {
         layout: 'radio',
         list: ['button', 'link']
       }
+    },
+    {
+      title: 'Background Color',
+      name: 'backgroundColor',
+      type: 'colorList'
     }
   ],
   preview: {
     select: {
       title: 'title',
-      landingPage: 'sitePageRoute.slug.current',
+      landingPage: 'sitePageRoute',
       route: 'route',
-      link: 'link'
+      link: 'link',
+      backgroundColor: 'backgroundColor.colors.value'
     },
-    prepare({ title, landingPage, route, link }) {
+    prepare({ title, landingPage,backgroundColor, route, link }) {
       let subtitle = 'Not set'
+
       if (landingPage) {
         subtitle = `Route: /${landingPage}`
       }
@@ -66,7 +75,8 @@ export default {
       }
       return {
         title,
-        subtitle
+        subtitle,
+        media: <div style={{backgroundColor, height: `100%`, borderRadius: `100%`}} />
       }
     }
   }

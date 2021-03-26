@@ -1,0 +1,26 @@
+@import url("https://use.typekit.net/hvl1pyo.css");
+:root {
+  --black: #293B48;
+  --white: #fff;
+  --brand-darkest: var(--black);
+  --brand-darkest--inverted: color(var(--brand-darkest) contrast(80%));
+  --brand-lightest: var(--white);
+  --brand-primary: #AE6445;
+  --brand-primary--inverted: color(var(--brand-primary) contrast(80%));
+  --brand-secondary: #6F907D;
+  --brand-secondary--inverted: var(--brand-lightest);
+
+  /* Base */
+  --brand-faded: color(var(--brand-primary) blend(var(--white) 60%));
+  --gray-base: color(var(--black) blend(var(--brand-faded) 50%));
+
+/* Typographu */
+--font-family-sans-serif: 'aktiv-grotesk';
+--font-size-base: 18px;
+--text-color: var(--black);
+  /* Main Navigation */
+  --main-navigation-color: var(--brand-darkest);
+  --main-navigation-color--inverted: var(--brand-darkest--inverted);
+
+
+}
