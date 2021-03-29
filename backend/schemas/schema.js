@@ -10,6 +10,7 @@ import service from "./documents/service";
 import siteSettings from "./documents/siteSettings";
 import bodyPortableText from "./objects/bodyPortableText";
 import colorList from "./objects/colorList";
+import footer from "./objects/footer";
 import linkCreator from "./objects/linkCreator";
 import mainImage from "./objects/mainImage";
 import openGraph from "./objects/openGraph";
@@ -43,6 +44,7 @@ export default createSchema({
       service,
       bodyPortableText,
       simpleBlockContent,
+      footer,
       colorList
     ])
     .concat(allPlugs),

@@ -1,13 +1,12 @@
-import { css, Global } from '@emotion/react';
-import styled from '@emotion/styled';
-import { StaticImage } from 'gatsby-plugin-image';
-import React, { useState } from 'react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import Button from './Button';
-import Header from './Header';
-import SEO from './SEO';
-import ThemeToggle from './ThemeToggle';
-import UniversalLink from './UniversalLink';
+import { css, Global } from "@emotion/react";
+import styled from "@emotion/styled";
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import Button from "./Button";
+import Header from "./Header";
+import SEO from "./SEO";
+import UniversalLink from "./UniversalLink";
 
 const FooterStyles = styled.footer`
   padding-top: 10vh;
@@ -79,20 +78,9 @@ const FooterStyles = styled.footer`
 `;
 
 export default function Layout({ children }) {
-  const [fontTheme, setFontTheme] = useState({
-    body: 'aktiv-grotesk',
-    heading: 'classico-urw',
-  });
-  function toggleTheme(e) {
-    setFontTheme((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  }
   return (
     <>
-      <ThemeToggle fontTheme={fontTheme} toggleTheme={toggleTheme} />
-      <SEO bodyClass={`heading--${fontTheme.heading} body--${fontTheme.body}`} title="Home" />
+      <SEO title="Home" />
       <Global
         styles={css`
           html {
@@ -105,10 +93,11 @@ export default function Layout({ children }) {
             --offWhite: #ededed;
             --maxWidth: 1440px;
             --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
-            --headingFont: 'classico-urw';
+            --headingFont: "ivypresto-display";
             --lineHeight: 1.75;
-            --fontStackHeading: var(--headingFont), Cambria, 'Hoefler Text', Utopia, 'Liberation Serif',
-              'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+            --fontStackHeading: var(--headingFont), Cambria, "Hoefler Text",
+              Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times,
+              "Times New Roman", serif;
             box-sizing: border-box;
 
             @media all and (min-width: 768px) {
@@ -122,90 +111,50 @@ export default function Layout({ children }) {
           }
 
           body {
-            &.heading--classico-urw {
-              h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6 {
-                font-family: 'classico-urw';
-              }
-            }
-            &.heading--ivypresto-display {
-              h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6 {
-                font-family: 'ivypresto-display';
-              }
-            }
-            &.heading--p22-mackinac-pro {
-              h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6 {
-                font-family: 'p22-mackinac-pro';
-              }
-            }
+            font-family: "aktiv-grotesk", --apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+              "Helvetica Neue", sans-serif;
 
-            &.body--aktiv-grotesk {
-              font-family: 'aktiv-grotesk', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-                Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-            &.body--courier-std {
-              font-family: 'courier-std', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-                Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-            font-size: 18px;
             padding: 0;
             margin: 0;
             /* font-size: 1.5rem; */
             line-height: var(--lineHeight);
-          }
 
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6 {
-            font-family: var(--fontStackHeading);
-          }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+              font-family: var(--fontStackHeading);
+            }
 
-          h1 {
-            font-size: 3.052rem;
-          }
-          h2 {
-            font-size: 2.441rem;
-          }
-          h3 {
-            font-size: 1.953rem;
-          }
-          h4 {
-            font-size: 1.563rem;
-          }
-          h5 {
-            font-size: 1.25rem;
-          }
-          h6 {
-            font-size: 1rem;
-          }
-          a {
-            text-decoration: none;
-            color: var(--black);
-          }
-          a:hover {
-            text-decoration: none;
-            color: var(--lightGray);
-          }
-
-          .gatsby-image-wrapper {
-            filter: grayscale(100);
+            h1 {
+              font-size: 3.052rem;
+            }
+            h2 {
+              font-size: 2.441rem;
+            }
+            h3 {
+              font-size: 1.953rem;
+            }
+            h4 {
+              font-size: 1.563rem;
+            }
+            h5 {
+              font-size: 1.25rem;
+            }
+            h6 {
+              font-size: 1rem;
+            }
+            a {
+              text-decoration: none;
+              color: var(--black);
+            }
+            a:hover {
+              text-decoration: none;
+              color: var(--lightGray);
+            }
           }
         `}
       />
