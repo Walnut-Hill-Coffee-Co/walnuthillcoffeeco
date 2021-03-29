@@ -3,12 +3,12 @@ import React from "react"
 import clientConfig from "../../client-config"
 import serializers from "./serializers"
 
-const PortableText = ({ blocks }) => (
-  <BaseBlockContent
-    blocks={blocks}
-    serializers={serializers}
-    {...clientConfig.sanity}
-  />
-)
-
-export default PortableText
+export default function PortableText({ blocks }){
+  return(
+    <BaseBlockContent
+      blocks={blocks}
+      serializers={serializers}
+      {...clientConfig.sanity}
+    />
+  )
+}

@@ -22,8 +22,8 @@ const ButtonStyles = styled(UniversalLink)`
     box-shadow: var(--bs);
 
     &--primary {
-      background: white;
-      color: var(--black);
+      background: var(--green);
+      color: var(--lightGray);
     }
     &--primary-outline {
       border: 1px solid var(--black);
@@ -36,7 +36,7 @@ const ButtonStyles = styled(UniversalLink)`
 
     &:hover,
     &:focus {
-      filter: brightness(85%) invert(100%);
+      filter: brightness(75%) ;
     }
 
     &--small {

@@ -1,81 +1,10 @@
 import { css, Global } from "@emotion/react";
-import styled from "@emotion/styled";
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import Button from "./Button";
+import Footer from "./Footer";
 import Header from "./Header";
 import SEO from "./SEO";
-import UniversalLink from "./UniversalLink";
 
-const FooterStyles = styled.footer`
-  padding-top: 10vh;
-  padding-bottom: 5vh;
-  background-color: var(--black);
-  > .inner-content {
-    width: 90%;
-    max-width: var(--maxWidth);
-    margin: 0 auto;
-    color: white;
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    h5 {
-      margin: 0;
-      /* text-transform: uppercase; */
-      letter-spacing: 1px;
-      text-align: center;
-    }
 
-    @media all and (min-width: 768px) {
-      align-items: flex-start;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
-      a {
-        display: flex;
-        align-items: center;
-        font-size: 3rem;
-        color: white;
-      }
-    }
-
-    .contact-box {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      h5 {
-        margin-top: 0;
-        margin-bottom: 2rem;
-      }
-      p {
-      }
-      a {
-        margin: auto;
-        display: block;
-      }
-
-      /* @media all and (min-width: 768px) {
-        flex-direction: row;
-        gap: 1rem;
-        flex-wrap: wrap;
-        h5 {
-          width: 100%;
-          margin-top: 0;
-        }
-      } */
-    }
-  }
-`;
 
 export default function Layout({ children }) {
   return (
@@ -84,13 +13,14 @@ export default function Layout({ children }) {
       <Global
         styles={css`
           html {
-            --red: #ff0000;
-            --black: #222526;
-            --grey: #3a3a3a;
-            --gray: var(--grey);
-            --lightGrey: #e1e1e1;
+            --black: #090C08;
+            --lightGrey: #e8e4d9;
             --lightGray: var(--lightGrey);
-            --offWhite: #ededed;
+            --green: #6f907d;
+            --blue: #293B48;
+            --tan: #ae6445;
+            --orange: #f7a27b;
+            --offWhite: var(--lightGray);
             --maxWidth: 1440px;
             --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
             --headingFont: "ivypresto-display";
@@ -153,37 +83,16 @@ export default function Layout({ children }) {
             }
             a:hover {
               text-decoration: none;
-              color: var(--lightGray);
+              color: var(--orange);
             }
           }
         `}
       />
       <Header />
       <main>{children}</main>
-      <FooterStyles>
-        <div className="inner-content">
-          <StaticImage src="../images/logo.png" width={300} layout="fixed" />
-          <div className="social-box">
-            <h5>Follow us.</h5>
-            <div className="social-icons">
-              <UniversalLink to="https://www.facebook.com/walnuthillcoffeeco">
-                <FaFacebook />
-              </UniversalLink>
-              <UniversalLink to="https://www.instagram.com/walnuthillcoffeeco">
-                <FaInstagram />
-              </UniversalLink>
-            </div>
-          </div>
-          <div className="contact-box">
-            <h5>Get in touch.</h5>
-            <Button buttonStyle="primary">Contact us</Button>
-            <p>
-              102 1st Ave. NW <br />
-              Winchester, TN 37398
-            </p>
-          </div>
-        </div>
-      </FooterStyles>
+      <Footer />
+
+
     </>
   );
 }

@@ -35,6 +35,7 @@ export default createSchema({
       siteSettings,
       socialLink,
       openGraph,
+      footer,
       mainImage,
       page,
       navMenu,
@@ -44,7 +45,6 @@ export default createSchema({
       service,
       bodyPortableText,
       simpleBlockContent,
-      footer,
       colorList
     ])
     .concat(allPlugs),
