@@ -34,6 +34,10 @@ const HeroStyles = styled.div`
       font-size: 2.441rem;
       color: var(--offWhite);
     }
+
+    a {
+      color: white;
+    }
   }
 `;
 

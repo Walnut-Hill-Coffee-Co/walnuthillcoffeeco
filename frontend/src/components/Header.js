@@ -51,7 +51,7 @@ const StyledHeader = styled.header`
           }
         }
         a {
-          color: var(--orange);
+          color: var(--lightGray);
         }
       }
     }
