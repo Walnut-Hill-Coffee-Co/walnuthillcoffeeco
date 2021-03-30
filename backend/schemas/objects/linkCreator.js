@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default {
   title: 'Link',
@@ -59,11 +58,11 @@ export default {
       landingPage: 'sitePageRoute.serviceLink.current',
       route: 'route',
       link: 'link',
-      backgroundColor: 'backgroundColor'
+      // backgroundColor: 'backgroundColor'
     },
     prepare({ title, landingPage,backgroundColor, route, link }) {
       let subtitle = 'Not set'
-      let realBackgroundColor = backgroundColor?.colors?.value ?? 'white'
+      // let realBackgroundColor = backgroundColor?.colors?.value || 'white'
       if (landingPage) {
         subtitle = `Route: ${landingPage}`
       }
@@ -76,7 +75,7 @@ export default {
       return {
         title,
         subtitle,
-        media: <div style={{backgroundColor: realBackgroundColor, height: `100%`, borderRadius: `100%`}} />
+        // media: <div style={{backgroundColor: realBackgroundColor, height: `100%`, borderRadius: `100%`}} />
       }
     }
   }

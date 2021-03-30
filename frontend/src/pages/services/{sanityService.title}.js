@@ -12,11 +12,8 @@ export default function ServiceTemplate({ params, data }) {
       <SEO title={sanityService?.title} description={sanityService?.excerpt} />
       {params.title}
       <pre>{JSON.stringify(sanityService, null, 2)}</pre>
-      {sanityService?.description?.columns?.map(({_key, _rawContent}) => {
-
-
-
-        return <PortableText key={_key} blocks={_rawContent ||[]} />
+      {sanityService?.description?.columns?.map(({ _key, _rawContent }) => {
+        return <PortableText key={_key} blocks={_rawContent || []} />;
       })}
     </Layout>
   );
@@ -30,11 +27,7 @@ export const ServiceQuery = graphql`
       _rawFeaturedImage(resolveReferences: { maxDepth: 10 })
       excerpt
       description {
-       columns {
-         _key
-         _type
-         _rawContent(resolveReferences: {maxDepth: 10})
-       }
+        ...GridContentFragment
       }
     }
   }

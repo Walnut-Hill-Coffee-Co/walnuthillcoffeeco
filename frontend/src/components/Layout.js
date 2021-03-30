@@ -66,6 +66,7 @@ export default function Layout({ children }) {
               font-size: 2.441rem;
             }
             h3 {
+              letter-spacing: 1px;
               font-size: 1.953rem;
             }
             h4 {
@@ -84,6 +85,18 @@ export default function Layout({ children }) {
             a:hover {
               text-decoration: none;
               color: var(--orange);
+            }
+
+            .single-column {
+              width: 100%;
+
+              > h1:first-child {
+                margin-top: 15rem;
+              }
+              > p {
+                margin: 0;
+                max-width: 65ch;
+              }
             }
           }
         `}

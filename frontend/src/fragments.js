@@ -17,13 +17,19 @@ export const fragments = graphql`
     _key
     _type
     columns {
-      _rawContent
-      _type
+      ... on SanitySingleColumn {
+        _key
+        _type
+        _rawContent(resolveReferences: { maxDepth: 10 })
+      }
+      ...on SanityIllustration {
+        _rawImage(resolveReferences: {maxDepth: 10})
+      }
     }
   }
   fragment ContentFragment on SanityBodySection {
-    _rawContent
+    _rawContent(resolveReferences: { maxDepth: 10 })
     _key
     _type
   }
-`
+`;
