@@ -58,7 +58,6 @@ export default function Hero() {
             Handcrafted coffee
             <br /> made with love.
           </h1>
-          {/*  <StaticImage src="../images/logo.png" alt="logo" layout="constrained" width={300} /> */}
           <Button size="small" to="/menu/" type="button" buttonStyle="primary" style={{ background: 'red' }}>
             View Menu
           </Button>

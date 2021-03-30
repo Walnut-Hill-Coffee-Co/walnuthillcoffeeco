@@ -3,7 +3,7 @@ import { getGatsbyImageData } from "gatsby-source-sanity";
 import React from "react";
 import { sanity } from "../../client-config";
 
-export default function Figure({ node }) {
+export default function Figure({ node, layout = 'fullWidth', format = ['AUTO', 'WEBP','AVIF'] , gatsbyImageArgs }) {
   if (!node.asset) {
     return null;
   }
@@ -11,10 +11,9 @@ export default function Figure({ node }) {
 
   const imageData = getGatsbyImageData(
     node.asset,
-    { layout: "fullWidth", format: ['AUTO', 'WEBP','AVIF'] },
+    { layout, format, ...gatsbyImageArgs },
     sanity
   );
 
-  console.log(node)
-  return <GatsbyImage image={imageData} alt={node.alt || ''} />;
+  return <GatsbyImage image={imageData} alt={node.alt ||  ''} />;
 }

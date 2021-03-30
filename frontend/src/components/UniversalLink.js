@@ -1,5 +1,6 @@
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
+import { normalizePath } from '../lib/normalizePath';
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
@@ -18,7 +19,7 @@ const UniversalLink = React.forwardRef(
       return (
         <GatsbyLink
           ref={ref}
-          to={to}
+          to={normalizePath(to)}
           className={className}
           activeClassName={activeClassName}
           partiallyActive={partiallyActive}

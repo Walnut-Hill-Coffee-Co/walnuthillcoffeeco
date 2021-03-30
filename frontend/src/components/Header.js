@@ -1,26 +1,9 @@
 import styled from '@emotion/styled';
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import Figure from './Figure';
 import UniversalLink from './UniversalLink';
 
-const navLinks = [
-  {
-    name: 'Home',
-    to: '/',
-  },
-  {
-    name: 'Menu',
-    to: 'https://store.walnuthillcoffeeco.com',
-  },
-  {
-    name: 'Events',
-    to: '/events/',
-  },
-  {
-    name: 'Contact',
-    to: '/contact/',
-  },
-];
 
 const StyledHeader = styled.header`
   max-width: var(--maxWidth);
@@ -52,7 +35,7 @@ const StyledHeader = styled.header`
 
       li {
         letter-spacing: 0.5px;
-        border-top: 1px solid var(--lightGray);
+        border-top: 1px solid var(--tan);
         line-height: calc(var(--lineHeight) / 1.5);
         text-transform: lowercase;
         transition: border 1000ms ease color 1000ms ease-in;
@@ -60,33 +43,53 @@ const StyledHeader = styled.header`
           margin-right: 2rem;
         }
         &:hover,
-        &:focus {
-          border-bottom: 1px solid var(--lightGray);
-
+        &:focus-within {
+          border-bottom: 1px solid var(--tan);
           a {
-            color: var(--black);
+          outline: none;
+            color: var(--tan);
           }
         }
         a {
-          color: var(--offWhite);
+          color: var(--orange);
         }
       }
     }
   }
 `;
 export default function Header() {
+
+   const {sanitySiteSettings, sanityNavigationMenu: {_rawItems}} = useStaticQuery(graphql`
+    {
+      sanitySiteSettings(_id: {eq: "siteSettings"}) {
+        title
+        headerLogo {
+          asset {
+            url
+            id
+            _id
+          }
+        }
+      }
+      sanityNavigationMenu(title: {eq: "Primary Navigation"}) {
+        id
+        _rawItems(resolveReferences: {maxDepth: 10})
+      }
+    }
+  `)
   return (
     <StyledHeader>
       <UniversalLink to="/">
-        <StaticImage src="../images/logo.png" width={200} placeholder="blurred" alt="logo" layout="fixed" />
+        <Figure node={sanitySiteSettings?.headerLogo} alt={sanitySiteSettings.title} gatsbyImageArgs={{width: 200, layout: 'constrained'}} />
       </UniversalLink>
       <nav>
         <ul>
-          {navLinks.map(({ name, to }) => (
-            <li key={name}>
-              <UniversalLink to={to}>{name}</UniversalLink>
+          {_rawItems.map(({ _key, route, sitePageRoute, link, title }) => {
+            return (
+            <li key={_key}>
+              <UniversalLink to={sitePageRoute?.slug?.current || route || link}>{title}</UniversalLink>
             </li>
-          ))}
+          )})}
         </ul>
       </nav>
     </StyledHeader>
