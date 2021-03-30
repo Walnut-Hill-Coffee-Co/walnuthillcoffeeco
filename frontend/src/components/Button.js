@@ -45,9 +45,9 @@ const ButtonStyles = styled(UniversalLink)`
   }
 `;
 
-export default function Button({ to, children, className, buttonStyle, size = '' }) {
+export default function Button({ to, children, className, buttonStyle, size = '' , style}) {
   return (
-    <ButtonStyles to={to} className={`btn btn__${className} btn--${size} btn--${buttonStyle}`}>
+    <ButtonStyles style={style} to={to} className={`btn btn__${className} btn--${size} btn--${buttonStyle}`}>
       {children}
     </ButtonStyles>
   );

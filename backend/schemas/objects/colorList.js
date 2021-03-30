@@ -12,11 +12,12 @@ export default {
           inner: "100%"
         },
         list: [
-          {title: 'Primary', value: "#AE6445"},
-          {title: 'Secondary', value: "#6F907D"},
-          {title: 'Darkest', value: "#293B48"},
-          {title: 'Light', value: "#E8E4D9"},
-          {title: 'Lightest', value: "#fff"},
+          {title: 'tan', value: "#AE6445"},
+          {title: 'green', value: "#6F907D"},
+          {title: 'blue', value: "#293B48"},
+          {title: 'black', value: "#090C08"},
+          {title: 'lightGrey', value: "#E8E4D9"},
+          {title: 'white', value: "#fff"},
         ]
       }
     }

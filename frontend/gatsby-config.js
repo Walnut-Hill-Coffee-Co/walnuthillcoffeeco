@@ -19,6 +19,7 @@ module.exports = {
         token: process.env.GATSBY_SANITY_TOKEN,
         apiVersion: '2021-03-27',
         watchMode: true,
+        overlayDrafts: true,
       },
     },
     'gatsby-plugin-emotion',
