@@ -37,13 +37,10 @@ const HeroStyles = styled.div`
   }
 `;
 
-export default function Hero(props, { _rawCta, _rawHeading }) {
+export default function Hero(props) {
   console.log(props._rawCta.backgroundColor.colors.value);
   return (
     <>
-      <div>
-        <pre>{JSON.stringify(props, null, 2)}</pre>
-      </div>
       <HeroStyles>
         <Figure node={props._rawIllustration.image} />
         {/* <GatsbyImage image={image} loading="eager" alt="friends enjoying coffee" /> */}
