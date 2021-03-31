@@ -1,8 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getGatsbyImageData } from "gatsby-source-sanity";
 import React from "react";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaFacebook, FaLinkedin, FaSnapchat } from "react-icons/fa";
+import { sanity } from "../../client-config";
 import Button from "./Button";
 import PortableText from "./PortableText";
 import { FooterStyles, MissionStyles } from "./styles/Footer";
@@ -52,7 +54,7 @@ export default function Footer() {
   `);
 
   const missionImage = getImage(mission)
-
+  const footerLogo = getGatsbyImageData(_rawFooterLogo.asset, {maxWidth: 300}, sanity)
   return (
     <>
       <MissionStyles>
@@ -65,7 +67,7 @@ export default function Footer() {
       </MissionStyles>
       <FooterStyles>
         <div className="inner-content">
-          <GatsbyImage image={_rawFooterLogo} />
+          <GatsbyImage image={footerLogo} alt="" />
           <div className="social-box">
             <h5>Follow us.</h5>
             <div className="social-icons">
@@ -79,7 +81,7 @@ export default function Footer() {
           </div>
           <div className="contact-box">
             <h5>Get in touch.</h5>
-            <Button buttonStyle="green" to="/contact/">Contact us</Button>
+            <Button buttonStyle="orange" to="/contact/">Contact us</Button>
             <PortableText blocks={_rawAddress} />
           </div>
         </div>

@@ -15,10 +15,6 @@ const ServiceStyles = styled.div`
     column-gap: 4rem;
   }
 
-  h1 {
-    margin: 0;
-    margin-top: 15rem;
-  }
 
   h2 {
     margin: 0;
@@ -76,7 +72,7 @@ export default function GridContent(props) {
         {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
         {props.columns.map((block, index) => {
 
-          switch (block._type) {
+          switch (block?._type) {
             case "illustration":
               return (
                 <Figure key={index} node={block._rawImage} alt={block.alt}  />

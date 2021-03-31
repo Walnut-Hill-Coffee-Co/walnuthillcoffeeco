@@ -28,6 +28,9 @@ export default function Layout({ children }) {
             --fontStackHeading: var(--headingFont), Cambria, "Hoefler Text",
               Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times,
               "Times New Roman", serif;
+              --fontStackBody: "aktiv-grotesk", --apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+              "Helvetica Neue", sans-serif;
             box-sizing: border-box;
 
             @media all and (min-width: 768px) {
@@ -41,9 +44,7 @@ export default function Layout({ children }) {
           }
 
           body {
-            font-family: "aktiv-grotesk", --apple-system, BlinkMacSystemFont,
-              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-              "Helvetica Neue", sans-serif;
+            font-family: var(--fontStackBody);
             background: var(--lightGray);
             padding: 0;
             margin: 0;
@@ -90,13 +91,18 @@ export default function Layout({ children }) {
 
             .single-column {
               width: 100%;
+              margin-top: 40vh;
 
-              > h1:first-child {
-                margin-top: 15rem;
-              }
-              > p {
+              > h1 + p {
                 margin: 0;
                 max-width: 65ch;
+              }
+
+              h4 {
+                margin: 0;
+                font-weight: 500;
+                font-family: var(--fontStackBody);
+                text-transform: uppercase;
               }
             }
           }

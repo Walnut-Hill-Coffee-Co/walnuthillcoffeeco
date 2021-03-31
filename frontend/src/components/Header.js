@@ -22,7 +22,9 @@ const StyledHeader = styled.header`
   > nav {
     /* flex: 1; */
     margin-left: 1rem;
-
+    .nav-link__active {
+      color: var(--tan);
+    }
     > ul {
       justify-content: end;
       margin: 0;
@@ -87,7 +89,7 @@ export default function Header() {
           {_rawItems.map(({ _key, route, sitePageRoute, link, title }) => {
             return (
             <li key={_key}>
-              <UniversalLink to={sitePageRoute?.slug?.current || route || link}>{title}</UniversalLink>
+              <UniversalLink activeClassName="nav-link__active" to={sitePageRoute?.slug?.current || route || link}>{title}</UniversalLink>
             </li>
           )})}
         </ul>

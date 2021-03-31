@@ -7,7 +7,6 @@ import UiComponent from "./pagebuilder-parts/UiComponent";
 
 export default function AllLayouts({ layoutData, location }) {
   const layoutType = layoutData.__typename;
-  console.log(layoutType)
   /**
    * Default Component
    */

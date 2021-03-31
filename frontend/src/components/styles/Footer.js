@@ -78,9 +78,10 @@ export const FooterStyles = styled.footer`
     }
     h5 {
       margin: 0;
-      /* text-transform: uppercase; */
+      text-transform: uppercase;
       letter-spacing: 1px;
       text-align: center;
+      font-family: var(--fontStackBody);
     }
 
     @media all and (min-width: 768px) {
@@ -97,7 +98,11 @@ export const FooterStyles = styled.footer`
         display: flex;
         align-items: center;
         font-size: 3rem;
-        color: var(--lightGray);
+        color: var(--orange);
+        transform: color 200ms ease;
+        &:hover, &:focus {
+          color: var(--tan);
+        }
       }
     }
 

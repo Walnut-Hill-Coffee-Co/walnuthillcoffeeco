@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import UniversalLink from './UniversalLink';
+import styled from "@emotion/styled";
+import React from "react";
+import UniversalLink from "./UniversalLink";
 
 const ButtonStyles = styled(UniversalLink)`
   transition: all 0.3s;
@@ -32,20 +32,48 @@ const ButtonStyles = styled(UniversalLink)`
     &--dark {
       background-color: var(--black);
       color: white;
+      &:focus {
+        outline-color: var(--black);
+      }
     }
 
     &--blue {
-      background-color: var(--tan);
+      background-color: var(--blue);
       color: var(--lightGray);
+      &:focus {
+        outline-color: var(--blue);
+      }
     }
     &--green {
       background-color: var(--green);
       color: var(--black);
+      &:focus {
+        outline-color: var(--green);
+      }
+    }
+    &--tan {
+      background-color: var(--tan);
+      color: var(--black);
+      &:focus {
+        outline-color: var(--tan);
+      }
+    }
+    &--orange {
+      background-color: var(--orange);
+      color: var(--black);
+      &:focus {
+        outline-color: var(--orange);
+      }
     }
 
     &:hover,
     &:focus {
-      filter: brightness(75%) ;
+      filter: brightness(75%);
+    }
+
+    &:focus {
+      outline-width: 2px;
+      outline-offset: 4px;
     }
 
     &--small {
@@ -54,10 +82,20 @@ const ButtonStyles = styled(UniversalLink)`
   }
 `;
 
-export default function Button({ to, children, className, buttonStyle, size = '' , style}) {
-  console.log(buttonStyle)
+export default function Button({
+  to,
+  children,
+  className,
+  buttonStyle,
+  size = "",
+  style,
+}) {
   return (
-    <ButtonStyles style={style} to={to} className={`btn btn__${className} btn--${size} btn--${buttonStyle}`}>
+    <ButtonStyles
+      style={style}
+      to={to}
+      className={`btn btn__${className} btn--${size} btn--${buttonStyle}`}
+    >
       {children}
     </ButtonStyles>
   );

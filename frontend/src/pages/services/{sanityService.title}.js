@@ -12,8 +12,8 @@ export default function ServiceTemplate({ params, data }) {
       <SEO title={sanityService?.title} description={sanityService?.excerpt} />
       {params.title}
       <pre>{JSON.stringify(sanityService, null, 2)}</pre>
-      {sanityService?.description?.columns?.map(({ _key, _rawContent }) => {
-        return <PortableText key={_key} blocks={_rawContent || []} />;
+      {sanityService.description.columns && sanityService?.description?.columns?.map((block, index) => {
+        return <PortableText key={index} blocks={block || []} />;
       })}
     </Layout>
   );

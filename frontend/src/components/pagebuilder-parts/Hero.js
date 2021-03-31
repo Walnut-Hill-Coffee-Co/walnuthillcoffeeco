@@ -7,9 +7,11 @@ import PortableText from "../PortableText";
 const HeroStyles = styled.div`
   position: relative;
   min-height: 70vh;
+  height: 90vh;
 
   > .gatsby-image-wrapper {
     min-height: 70vh;
+    height: 90vh;
     clip-path: url(#myCurve);
     filter: brightness(80%);
   }
@@ -45,7 +47,6 @@ const HeroStyles = styled.div`
 `;
 
 export default function Hero(props) {
-  console.log(props._rawCta.backgroundColor.colors.value);
   return (
     <>
       <HeroStyles>
@@ -58,7 +59,7 @@ export default function Hero(props) {
             </h1>
           )}
           {props?._rawCta?.kind === "button" && props?._rawCta?.link && (
-            <Button size="small" to={props?._rawCta.link} type="button" style={{backgroundColor: props._rawCta.backgroundColor.colors.value}}>
+            <Button size="small" to={props?._rawCta.link} type="button" buttonStyle={props?._rawCta?.backgroundColor?.title} style={{backgroundColor: props?._rawCta?.backgroundColor.colors?.value}}>
               View Menu
             </Button>
           )}
