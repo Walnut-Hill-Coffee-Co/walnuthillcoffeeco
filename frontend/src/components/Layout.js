@@ -44,7 +44,7 @@ export default function Layout({ children }) {
             font-family: "aktiv-grotesk", --apple-system, BlinkMacSystemFont,
               "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
               "Helvetica Neue", sans-serif;
-
+            background: var(--lightGray);
             padding: 0;
             margin: 0;
             /* font-size: 1.5rem; */
@@ -57,6 +57,7 @@ export default function Layout({ children }) {
             h5,
             h6 {
               font-family: var(--fontStackHeading);
+              font-weight: 300;
             }
 
             h1 {

@@ -1,6 +1,8 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import { Container } from '../styles/Container'
+import styled from "@emotion/styled";
+import React from "react";
+import Figure from "../Figure";
+import PortableText from "../PortableText";
+import { Container } from "../styles/Container";
 
 const ServiceStyles = styled.div`
   margin: 6rem auto;
@@ -8,6 +10,10 @@ const ServiceStyles = styled.div`
   /* column-gap: 4rem; */
   margin-top: 40vh;
   min-height: 60vh;
+
+  &:last-of-type {
+    column-gap: 4rem;
+  }
 
   h1 {
     margin: 0;
@@ -19,53 +25,82 @@ const ServiceStyles = styled.div`
     line-height: calc(var(--lineHeight) / 1.5);
   }
   p {
-   margin-top: 0;
-   margin-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
     max-width: 100ch;
   }
 
-  > article {
-    display: grid;
-    align-items: center;
+  > .content {
     .gatsby-image-wrapper {
-      align-self: stretch;
+      width: 100%;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 2rem 0;
+    p {
+      margin: 2rem 0;
     }
   }
 
-   @media screen and (min-width: 768px) {
+  .has-content-image {
+    margin: 0;
+    padding: 0;
+    h2 {
+      margin-top: 2rem;
+    }
+
+    p {
+      flex: 1;
+    }
+
+
+  }
+
+  @media screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-
-    .full-width {
-      grid-template-columns: 1fr 1fr;
-
-      .content {
-        padding-left: 4rem;
-        margin: 0;
-      }
-
-      &:nth-child(even) {
-        .content {
-          padding: 0;
-          padding-right: 4rem;
-        }
-      }
+    .content:nth-child(even):not('.has-content-image') {
+      padding-left: 4rem;
     }
+
   }
-`
+`;
 
 export default function GridContent(props) {
-  console.log(props)
+  // console.log(props);
+  const gridColumnCount = props.columns.length;
   return (
     <Container>
-      <ServiceStyles>
-      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
-      {/* {props.columns.map(({_rawContent}, index) => {
-        let content = _rawContent.map(block => (<PortableText blocks={block} key={block._key} />))
-        return (
-          <article>{content}</article>
-        )
-      })} */}
+      <ServiceStyles cols={gridColumnCount}>
+        {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
+        {props.columns.map((block, index) => {
+
+          switch (block._type) {
+            case "illustration":
+              return (
+                <Figure key={index} node={block._rawImage} alt={block.alt}  />
+              );
+            case "singleColumn":
+              let content = block._rawContent.map((block) => (
+                <PortableText
+                  key={block._key}
+                  blocks={block}
+                  key={block._key}
+                />
+              ));
+              console.log(block._rawContent[0]._type)
+          const singleColWithImage = block._rawContent[0]._type === 'mainImage'
+              return (
+                <article className={`content ${singleColWithImage ? 'has-content-image': ''}`} key={index}>
+                  {content}
+                </article>
+              );
+            default:
+              break;
+          }
+        })}
       </ServiceStyles>
     </Container>
-  )
+  );
 }

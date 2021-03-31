@@ -4,7 +4,6 @@ import React from "react";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaFacebook, FaLinkedin, FaSnapchat } from "react-icons/fa";
 import Button from "./Button";
-import Figure from "./Figure";
 import PortableText from "./PortableText";
 import { FooterStyles, MissionStyles } from "./styles/Footer";
 import UniversalLink from "./UniversalLink";
@@ -66,7 +65,7 @@ export default function Footer() {
       </MissionStyles>
       <FooterStyles>
         <div className="inner-content">
-          <Figure node={_rawFooterLogo} />
+          <GatsbyImage image={_rawFooterLogo} />
           <div className="social-box">
             <h5>Follow us.</h5>
             <div className="social-icons">
@@ -80,7 +79,7 @@ export default function Footer() {
           </div>
           <div className="contact-box">
             <h5>Get in touch.</h5>
-            <Button buttonStyle="primary" to="/contact/">Contact us</Button>
+            <Button buttonStyle="green" to="/contact/">Contact us</Button>
             <PortableText blocks={_rawAddress} />
           </div>
         </div>

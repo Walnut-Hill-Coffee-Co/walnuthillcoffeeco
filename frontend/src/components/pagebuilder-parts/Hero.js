@@ -33,6 +33,9 @@ const HeroStyles = styled.div`
       text-align: center;
       font-size: 2.441rem;
       color: var(--offWhite);
+      > p {
+        margin: 0;
+      }
     }
 
     a {

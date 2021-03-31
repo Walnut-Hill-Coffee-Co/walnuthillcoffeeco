@@ -34,6 +34,15 @@ const ButtonStyles = styled(UniversalLink)`
       color: white;
     }
 
+    &--blue {
+      background-color: var(--tan);
+      color: var(--lightGray);
+    }
+    &--green {
+      background-color: var(--green);
+      color: var(--black);
+    }
+
     &:hover,
     &:focus {
       filter: brightness(75%) ;
@@ -46,6 +55,7 @@ const ButtonStyles = styled(UniversalLink)`
 `;
 
 export default function Button({ to, children, className, buttonStyle, size = '' , style}) {
+  console.log(buttonStyle)
   return (
     <ButtonStyles style={style} to={to} className={`btn btn__${className} btn--${size} btn--${buttonStyle}`}>
       {children}

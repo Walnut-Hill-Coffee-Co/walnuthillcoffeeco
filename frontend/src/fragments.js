@@ -23,6 +23,8 @@ export const fragments = graphql`
         _rawContent(resolveReferences: { maxDepth: 10 })
       }
       ...on SanityIllustration {
+        _type
+        _key
         _rawImage(resolveReferences: {maxDepth: 10})
       }
     }
