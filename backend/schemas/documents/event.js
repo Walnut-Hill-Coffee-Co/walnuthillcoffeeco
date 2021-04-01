@@ -12,9 +12,6 @@ export default {
       subtitle: "eventStart",
     },
     prepare: ({ title, subtitle }) => {
-      // const formattedDate = new Intl.DateTimeFormat('en-US', {dateStyle: 'long', timeStyle: 'medium'}).format(subtitle)
-      // const time = formattedDate.toLocaleTimeString('en-US')
-      // const date = formattedDate.toLocaleDateString('en-US')
       const formattedDate = new Intl.DateTimeFormat("en-US", {
         dateStyle: "long",
         timeStyle: "short",
@@ -24,6 +21,10 @@ export default {
         subtitle: formattedDate,
       };
     },
+  },
+  initialValue: {
+    eventType: 'public',
+    coffeeTruckUsed: 'yes'
   },
   fields: [
     {
@@ -39,6 +40,31 @@ export default {
         source: (doc) => `/events/${doc.title}`,
         slugify: customSlugify,
       },
+    },
+    {
+      title: 'Event Type',
+      name: 'eventType',
+      type: 'string',
+      options: {
+        list: [
+          'public', 'private'
+        ],
+        layout: 'radio',
+        direction: 'horizontal'
+      }
+    },
+    {
+      title: 'Coffee Truck Involvement',
+      name: 'coffeeTruckUsed',
+      description: 'Will the coffee truck be used at this event?',
+      type: 'string',
+      options: {
+        list: [
+          'yes', 'no'
+        ],
+        layout: 'radio',
+        direction: 'horizontal'
+      }
     },
     {
       title: "Event Start",

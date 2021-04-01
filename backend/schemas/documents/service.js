@@ -59,8 +59,9 @@ export default {
     },
     {
       name: 'description',
-      type: 'gridContent',
-      title: 'Page Content'
+      type: 'array',
+      title: 'Page Content',
+      of: [{type: 'gridContent'}, {type: 'bodySection'}, {type: 'uiComponentRef'}, {type: 'illustration'}]
     }
   ],
 };
