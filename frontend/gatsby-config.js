@@ -18,7 +18,7 @@ module.exports = {
         dataset: process.env.GATSBY_SANITY_DATASET,
         token: process.env.GATSBY_SANITY_TOKEN,
         apiVersion: '2021-03-27',
-        watchMode: true,
+        watchMode: process.env.NODE_ENV === 'development' ? true : false,
         overlayDrafts: true,
       },
     },

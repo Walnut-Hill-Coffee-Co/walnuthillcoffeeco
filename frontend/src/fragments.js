@@ -27,6 +27,10 @@ export const fragments = graphql`
         _key
         _rawImage(resolveReferences: {maxDepth: 10})
       }
+      ...on SanityUiComponentRef {
+        _key
+        _type
+      }
     }
   }
   fragment ContentFragment on SanityBodySection {
