@@ -47,10 +47,13 @@ const HeroStyles = styled.div`
 `;
 
 export default function Hero(props) {
+  if(!props?._rawIllustration?.image) {
+    return null
+  }
   return (
     <>
       <HeroStyles>
-        <Figure node={props._rawIllustration.image} />
+        <Figure node={props?._rawIllustration?.image} />
         {/* <GatsbyImage image={image} loading="eager" alt="friends enjoying coffee" /> */}
         <div className="inner-content">
           {props?._rawHeading && (
@@ -59,7 +62,7 @@ export default function Hero(props) {
             </h1>
           )}
           {props?._rawCta?.kind === "button" && props?._rawCta?.link && (
-            <Button size="small" to={props?._rawCta.link} type="button" buttonStyle={props?._rawCta?.backgroundColor?.title} style={{backgroundColor: props?._rawCta?.backgroundColor.colors?.value}}>
+            <Button size="small" to={props?._rawCta.link} type="button" buttonStyle={props?._rawCta?.backgroundColor?.title} style={{backgroundColor: props?._rawCta?.backgroundColor?.colors?.value}}>
               View Menu
             </Button>
           )}
