@@ -14,7 +14,7 @@ export default {
       name: "name",
       title: 'Render Component',
       options: {
-        list: [{ title: "Event List", value: 'eventList' }, {title: 'Contact Form', value: 'contactForm'}, ],
+        list: [{ title: "Event List", value: 'eventList' }, {title: 'Contact Form', value: 'contactForm'}, {title: 'Booking Form', value: 'bookingForm'},{title: 'Truck Schedule', value: 'truckSchedule'}],
         layout: 'radio',
         direction: 'horizontal'
       },
@@ -25,7 +25,7 @@ export default {
       title: "name",
     },
     prepare({ title }) {
-      const media = title === 'eventList' ? MdEvent : GrContact
+      const media = title === 'eventList'|| 'uiComponentRef' ? MdEvent : GrContact
 
       return {
         title: _startCase(title),
