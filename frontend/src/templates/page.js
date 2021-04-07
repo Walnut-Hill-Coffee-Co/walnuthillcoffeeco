@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import AllLayouts from "../components/AllLayouts";
 import Layout from "../components/Layout";
@@ -11,9 +12,25 @@ export default function PageTemplate({
   const { content, title, id } = sanityPage;
   const { _rawOpenGraph } = sanityRoute;
   const layouts = content || [];
-  console.log(location);
   const newLocation = location.pathname.split('/').join('')
-  console.log(newLocation)
+
+  if(location.pathname !== '/'){
+    return <Layout>
+
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh'
+      }}>
+        <StaticImage src="../images/favicon.png" layout="fixed" width={300} />
+        <h1>Page under construction!</h1>
+        <p>We're currently building something awesome! Check back shortly for new updates!</p>
+      </div>
+
+    </Layout>
+  }
   return (
     <Layout>
       <SEO
