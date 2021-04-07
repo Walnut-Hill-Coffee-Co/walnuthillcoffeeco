@@ -1,8 +1,8 @@
 import { graphql } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import AllLayouts from "../components/AllLayouts";
 import Layout from "../components/Layout";
+import PageUnderConstruction from "../components/PageUnderConstruction";
 import SEO from "../components/SEO";
 
 export default function PageTemplate({
@@ -12,29 +12,19 @@ export default function PageTemplate({
   const { content, title, id } = sanityPage;
   const { _rawOpenGraph } = sanityRoute;
   const layouts = content || [];
-  const newLocation = location.pathname.split('/').join('')
+  const newLocation = location.pathname.split("/").join("");
 
-  if(location.pathname !== '/'){
-    return <Layout>
-
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh'
-      }}>
-        <StaticImage src="../images/favicon.png" layout="fixed" width={300} />
-        <h1>Page under construction!</h1>
-        <p>We're currently building something awesome! Check back shortly for new updates!</p>
-      </div>
-
-    </Layout>
+  if (location.pathname !== "/") {
+    return (
+      <Layout>
+        <PageUnderConstruction />
+      </Layout>
+    );
   }
   return (
     <Layout>
       <SEO
-        bodyClass={newLocation ? newLocation : 'home-page'}
+        bodyClass={newLocation ? newLocation : "home-page"}
         title={_rawOpenGraph?.title || title}
         description={_rawOpenGraph?.description}
       />
