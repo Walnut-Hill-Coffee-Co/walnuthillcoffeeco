@@ -79,7 +79,7 @@ export default {
     {
       title: "Event End",
       type: "datetime",
-      name: "date",
+      name: "eventEnd",
       options: {
         dateFormat: "LLL",
         timeStep: 15,

@@ -14,7 +14,7 @@ export default function PageTemplate({
   const layouts = content || [];
   const newLocation = location.pathname.split("/").join("");
 
-  if (location.pathname !== "/") {
+  if (location.pathname !== "/" && location.pathname !== '/events/') {
     return (
       <Layout>
         <PageUnderConstruction />
