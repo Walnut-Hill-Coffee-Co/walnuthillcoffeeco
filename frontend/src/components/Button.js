@@ -29,6 +29,14 @@ const ButtonStyles = styled(UniversalLink)`
       border: 1px solid var(--black);
     }
 
+    &--black {
+      background-color: var(--black);
+      color: var(--offWhite);
+      &:focus {
+        outline-color: var(--black);
+      }
+    }
+
     &--dark {
       background-color: var(--black);
       color: white;

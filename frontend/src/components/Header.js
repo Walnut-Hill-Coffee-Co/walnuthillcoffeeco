@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
     /* flex: 1; */
     margin-left: 1rem;
     .nav-link__active {
-      color: var(--tan);
+      color: var(--orange);
     }
     > ul {
       justify-content: end;
@@ -37,7 +37,7 @@ const StyledHeader = styled.header`
 
       li {
         letter-spacing: 0.5px;
-        border-top: 1px solid var(--tan);
+        border-top: 1px solid var(--orange);
         line-height: calc(var(--lineHeight) / 1.5);
         text-transform: lowercase;
         transition: border 1000ms ease color 1000ms ease-in;
@@ -46,13 +46,14 @@ const StyledHeader = styled.header`
         }
         &:hover,
         &:focus-within {
-          border-bottom: 1px solid var(--tan);
+          border-bottom: 1px solid var(--orange);
           a {
           outline: none;
-            color: var(--tan);
+            color: var(--orange);
           }
         }
         a {
+          font-weight:lighter;
           color: var(--black);
         }
       }

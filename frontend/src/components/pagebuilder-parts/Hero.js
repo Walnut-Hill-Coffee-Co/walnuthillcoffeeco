@@ -34,15 +34,13 @@ const HeroStyles = styled.div`
       line-height: calc(var(--lineHeight) / 1.25);
       text-align: center;
       font-size: 2.441rem;
-      color: var(--offWhite);
+      color: var(--black);
+      font-weight: 400;
       > p {
         margin: 0;
       }
     }
 
-    a {
-      color: white;
-    }
   }
 `;
 
@@ -50,6 +48,7 @@ export default function Hero(props) {
   if(!props?._rawIllustration?.image) {
     return null
   }
+
   return (
     <>
       <HeroStyles>
@@ -62,7 +61,7 @@ export default function Hero(props) {
             </h1>
           )}
           {props?._rawCta?.kind === "button" && props?._rawCta?.link && (
-            <Button size="small" to={props?._rawCta.link} type="button" buttonStyle={props?._rawCta?.backgroundColor?.title} style={{backgroundColor: props?._rawCta?.backgroundColor?.colors?.value}}>
+            <Button size="small" to={props?._rawCta.link} type="button" buttonStyle={props?._rawCta?.backgroundColor?.colors?.title} style={{backgroundColor: props?._rawCta?.backgroundColor?.colors?.value}}>
               View Menu
             </Button>
           )}
