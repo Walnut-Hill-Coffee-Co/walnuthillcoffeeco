@@ -12,6 +12,7 @@ import bodyPortableText from "./objects/bodyPortableText";
 import colorList from "./objects/colorList";
 import footer from "./objects/footer";
 import linkCreator from "./objects/linkCreator";
+import location from "./objects/location";
 import mainImage from "./objects/mainImage";
 import openGraph from "./objects/openGraph";
 import simpleBlockContent from "./objects/simpleBlockContent";
@@ -39,6 +40,7 @@ export default createSchema({
       mainImage,
       page,
       navMenu,
+      location,
       route,
       event,
       linkCreator,

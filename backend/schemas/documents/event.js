@@ -23,8 +23,8 @@ export default {
     },
   },
   initialValue: {
-    eventType: 'public',
-    coffeeTruckUsed: 'yes'
+    eventType: "public",
+    coffeeTruckUsed: "yes",
   },
   fields: [
     {
@@ -42,29 +42,25 @@ export default {
       },
     },
     {
-      title: 'Event Type',
-      name: 'eventType',
-      type: 'string',
+      title: "Event Type",
+      name: "eventType",
+      type: "string",
       options: {
-        list: [
-          'public', 'private'
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
+        list: ["public", "private"],
+        layout: "radio",
+        direction: "horizontal",
+      },
     },
     {
-      title: 'Coffee Truck Involvement',
-      name: 'coffeeTruckUsed',
-      description: 'Will the coffee truck be used at this event?',
-      type: 'string',
+      title: "Coffee Truck Involvement",
+      name: "coffeeTruckUsed",
+      description: "Will the coffee truck be used at this event?",
+      type: "string",
       options: {
-        list: [
-          'yes', 'no'
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
+        list: ["yes", "no"],
+        layout: "radio",
+        direction: "horizontal",
+      },
     },
     {
       title: "Event Start",
@@ -89,7 +85,7 @@ export default {
     {
       title: "Event Location",
       name: "location",
-      type: "geopoint",
+      type: "location",
     },
     {
       title: "Event Description",
@@ -97,4 +93,11 @@ export default {
       name: "description",
     },
   ],
+  initialValue: {
+    location: {
+      _type: 'location',
+      city: "Winchester",
+      state: "TN",
+    },
+  },
 };

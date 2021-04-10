@@ -6,6 +6,7 @@ import { Container } from "./styles/Container";
 
 const EventListStyles = styled.div`
   display: grid;
+  margin-top: 10vh;
   gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 `;
@@ -30,7 +31,7 @@ export default function EventList() {
 
 export const EVENT_QUERY = graphql`
   {
-    allSanityEvent(sort: {fields: eventStart, order: ASC}) {
+    allSanityEvent(sort: { fields: eventStart, order: ASC }) {
       edges {
         node {
           id
@@ -44,11 +45,10 @@ export const EVENT_QUERY = graphql`
             current
           }
           location {
-            lng
-            lat
-            alt
-            _type
-            _key
+            address1
+            city
+            state
+            name
           }
         }
       }
