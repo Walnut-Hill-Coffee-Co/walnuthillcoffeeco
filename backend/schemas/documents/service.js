@@ -61,7 +61,7 @@ export default {
       name: 'description',
       type: 'array',
       title: 'Page Content',
-      of: [{type: 'gridContent'}, {type: 'bodySection'}, {type: 'uiComponentRef'}, {type: 'illustration'}]
+      of: [{type: 'gridContent'}, {type: 'bodySection'}, {type: 'uiComponentRef'}, {type: 'illustration'}, {type: 'imageGallery'}]
     }
   ],
 };
