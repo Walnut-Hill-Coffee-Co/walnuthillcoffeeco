@@ -1,11 +1,8 @@
 import { css, Global } from "@emotion/react";
-import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import React from 'react';
+import Footer from './Footer';
+import Header from './Header';
 import SEO from "./SEO";
-
-
-
 export default function Layout({ children }) {
   return (
     <>
@@ -13,11 +10,11 @@ export default function Layout({ children }) {
       <Global
         styles={css`
           html {
-            --black: #090C08;
+            --black: #090c08;
             --lightGrey: #e8e4d9;
             --lightGray: var(--lightGrey);
             --green: #6f907d;
-            --blue: #293B48;
+            --blue: #293b48;
             --tan: #ae6445;
             --orange: #f7a27b;
             --offWhite: var(--lightGray);
@@ -28,7 +25,7 @@ export default function Layout({ children }) {
             --fontStackHeading: var(--headingFont), Cambria, "Hoefler Text",
               Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times,
               "Times New Roman", serif;
-              --fontStackBody: "aktiv-grotesk", --apple-system, BlinkMacSystemFont,
+            --fontStackBody: "aktiv-grotesk", --apple-system, BlinkMacSystemFont,
               "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
               "Helvetica Neue", sans-serif;
             box-sizing: border-box;
@@ -111,8 +108,20 @@ export default function Layout({ children }) {
       <Header />
       <main>{children}</main>
       <Footer />
-
-
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="myCurve" clipPathUnits="objectBoundingBox">
+            <path
+              d="M 0,1
+									L 0,0
+									L 1,0
+									L 1, .85
+									C .8 .95, .2 .95, 0 .85
+									Z"
+            />
+          </clipPath>
+        </defs>
+      </svg>
     </>
   );
 }

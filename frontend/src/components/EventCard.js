@@ -89,12 +89,12 @@ export default function EventCard({
     dateStyle: "long",
     timeStyle: "short",
     hour12: true,
-  }).format(new Date(eventEnd));
+  }).format(new Date(eventStart));
   const formattedEventEnd= new Intl.DateTimeFormat("en-US", {
     dateStyle: "long",
     timeStyle: "short",
     hour12: true,
-  }).format(new Date(eventStart));
+  }).format(new Date(eventEnd));
 
   const endTime = formattedEventEnd.substring(formattedEventEnd.length - 7)
 

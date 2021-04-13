@@ -3,6 +3,7 @@ import React from "react";
 import Figure from "../Figure";
 import PortableText from "../PortableText";
 import { Container } from "../styles/Container";
+import UiComponent from "./UiComponent";
 
 const ServiceStyles = styled.div`
   margin: 6rem auto;
@@ -64,12 +65,10 @@ const ServiceStyles = styled.div`
 `;
 
 export default function GridContent(props) {
-  // console.log(props);
   const gridColumnCount = props.columns.length;
   return (
     <Container>
       <ServiceStyles cols={gridColumnCount}>
-        {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
         {props.columns.map((block, index) => {
 
           switch (block?._type) {
@@ -85,13 +84,14 @@ export default function GridContent(props) {
                   key={block._key}
                 />
               ));
-              console.log(block._rawContent[0]._type)
           const singleColWithImage = block._rawContent[0]._type === 'mainImage'
               return (
                 <article className={`content ${singleColWithImage ? 'has-content-image': ''}`} key={index}>
                   {content}
                 </article>
               );
+            case "uiComponentRef":
+              return <UiComponent {...block} key={index} />
             default:
               break;
           }

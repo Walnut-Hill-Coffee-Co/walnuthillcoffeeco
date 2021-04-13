@@ -34,22 +34,7 @@ export const EVENT_QUERY = graphql`
     allSanityEvent(sort: { fields: eventStart, order: ASC }) {
       edges {
         node {
-          id
-          title
-          coffeeTruckUsed
-          eventStart
-          eventEnd
-          eventType
-          _rawDescription(resolveReferences: { maxDepth: 10 })
-          slug {
-            current
-          }
-          location {
-            address1
-            city
-            state
-            name
-          }
+          ...EventFragment
         }
       }
     }

@@ -3,6 +3,7 @@ import BodySection from "./pagebuilder-parts/BodySection";
 import Content from "./pagebuilder-parts/Content";
 import GridContent from "./pagebuilder-parts/GridContent";
 import Hero from "./pagebuilder-parts/Hero";
+import ImageGallery from "./pagebuilder-parts/ImageGallery";
 import UiComponent from "./pagebuilder-parts/UiComponent";
 
 export default function AllLayouts({ layoutData, location }) {
@@ -26,6 +27,7 @@ export default function AllLayouts({ layoutData, location }) {
     SanityBodySection: BodySection,
     SanityContent: Content,
     SanityUiComponentRef: UiComponent,
+    SanityImageGallery: ImageGallery,
     page_default: Default
   }
 
