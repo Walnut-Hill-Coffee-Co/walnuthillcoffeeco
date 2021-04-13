@@ -11,7 +11,6 @@ const BlockRenderer = props => {
     return React.createElement(style, { className: `heading-${level}`}, props.children)
   }
 
-  console.log({props})
 
   // Fall back to default handling
   return SanityBlockContent.defaultSerializers.types.block(props)

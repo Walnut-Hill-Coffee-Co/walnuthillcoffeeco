@@ -5,7 +5,7 @@ import PortableText from "../PortableText";
 import { Container } from "../styles/Container";
 import UiComponent from "./UiComponent";
 
-const ServiceStyles = styled.div`
+export const ServiceStyles = styled.div`
   margin: 6rem auto;
   display: grid;
   /* column-gap: 4rem; */

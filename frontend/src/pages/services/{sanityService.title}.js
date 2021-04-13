@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getGatsbyImageData } from "gatsby-source-sanity";
@@ -5,9 +6,15 @@ import React from "react";
 import { sanity } from '../../../client-config';
 import AllLayouts from "../../components/AllLayouts";
 import Layout from "../../components/Layout";
+import { ServiceStyles } from '../../components/pagebuilder-parts/GridContent';
 import SEO from "../../components/SEO";
-import { Container } from '../../components/styles/Container';
 import { HeroStyles } from "../../components/styles/HeroStyles";
+const ServiceTemplateStyles = styled.div`
+
+  ${ServiceStyles} {
+    min-height: auto;
+  }
+`
 export default function ServiceTemplate({  data, location }) {
   const { sanityService } = data;
 
@@ -32,13 +39,13 @@ export default function ServiceTemplate({  data, location }) {
             <h1>{title}</h1>
           </div>
         </HeroStyles>
-        <Container>
+        <ServiceTemplateStyles>
           {layouts.length > 0 && layouts.map((layout, index) => {
             return (
               <AllLayouts key={index} layoutData={layout} location={location} />
             )
           })}
-        </Container>
+        </ServiceTemplateStyles>
       </> }
     </Layout>
   );

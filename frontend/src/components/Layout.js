@@ -18,8 +18,11 @@ export default function Layout({ children }) {
             --tan: #ae6445;
             --orange: #f7a27b;
             --offWhite: var(--lightGray);
+            --white: #fffafa;
+            --whiten: #fff;
             --maxWidth: 1440px;
             --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
+            --borderRadius: 5px;
             --headingFont: "ivypresto-display";
             --lineHeight: 1.75;
             --fontStackHeading: var(--headingFont), Cambria, "Hoefler Text",

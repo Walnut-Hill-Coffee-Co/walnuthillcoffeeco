@@ -4,8 +4,9 @@ import { FaRegClock } from "react-icons/fa";
 import { RiTruckLine } from "react-icons/ri";
 import PortableText from "./PortableText";
 const EventStyles = styled.article`
-  background-color: var(--lightGray);
+  background-color: var(--white, white);
   box-shadow: var(--bs);
+  border-radius: var(--borderRadius);
   padding: 2rem;
   display: grid;
   gap: 1rem;
@@ -98,7 +99,6 @@ export default function EventCard({
 
   const endTime = formattedEventEnd.substring(formattedEventEnd.length - 7)
 
-  console.log({formattedEventStart,formattedEventEnd, endTime})
   return (
     <EventStyles>
       <h3>{title}</h3>

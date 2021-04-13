@@ -9,7 +9,7 @@ console.log(rest)
       return <EventList />
     case "contactForm":
       return <span>Contact form</span>
-    case "bookingform":
+    case "bookingForm":
       return <h1>Booking form</h1>
     case "truckSchedule":
       return <TruckEvents />
