@@ -1,5 +1,7 @@
 import React from 'react';
 import EventList from '../EventList';
+import BookingForm from '../forms/BookingForm';
+import ContactForm from '../forms/ContactForm';
 import TruckEvents from '../TruckEvents';
 
 export default function UiComponent({location, ...rest}) {
@@ -8,9 +10,9 @@ console.log(rest)
     case "eventList":
       return <EventList />
     case "contactForm":
-      return <span>Contact form</span>
+      return <ContactForm />
     case "bookingForm":
-      return <h1>Booking form</h1>
+      return <BookingForm />
     case "truckSchedule":
       return <TruckEvents />
     default:

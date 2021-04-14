@@ -25,6 +25,8 @@ export default function Layout({ children }) {
             --borderRadius: 5px;
             --headingFont: "ivypresto-display";
             --lineHeight: 1.75;
+            --fontSize7: .8rem;
+            --fontSize8: .64rem;
             --fontStackHeading: var(--headingFont), Cambria, "Hoefler Text",
               Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times,
               "Times New Roman", serif;
