@@ -1,7 +1,6 @@
 import { FormiumForm } from '@formium/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { formium } from '../../lib/formium';
 import { FormStyles } from '../styles/FormStyles';
 import { customComponents } from './CustomComponent';
 
@@ -28,7 +27,8 @@ export default function ContactForm() {
         data={data.formiumForm}
         onSubmit={async (values) => {
           // Send values to formium
-          await formium.submitForm("contact-form", values);
+          console.log(values)
+          // await formium.submitForm("contact-form", values);
           alert("Success");
         }}
       />

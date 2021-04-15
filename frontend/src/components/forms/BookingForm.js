@@ -24,7 +24,7 @@ export default function BookingForm() {
 
   return (
     <FormStyles>
-      <h2>Booking Form</h2>
+      <h2>Book us for you next event!</h2>
       <FormiumForm
         components={customComponents}
         data={data.formiumForm}

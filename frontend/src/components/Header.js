@@ -52,9 +52,15 @@ const StyledHeader = styled.header`
             color: var(--orange);
           }
         }
+
+        &:focus-within {
+          a {
+            color: var(--white);
+          }
+        }
         a {
           font-weight:lighter;
-          color: var(--black);
+          color: var(--white);
         }
       }
     }

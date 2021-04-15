@@ -12,6 +12,21 @@ const normalizePath = (path) => {
   return path;
 };
 
+exports.createSchemaCustomization = ({actions, schema, getNode}) => {
+  actions.createTypes([
+    schema.buildObjectType({
+      name: 'SanityEvent',
+      interfaces: ['Node'],
+      fields: {
+        eventInPast: {
+          type:'Boolean!',
+          resolve: source => new Date(source.eventStart) < new Date(),
+        }
+      }
+    })
+  ])
+}
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const {
     data: {

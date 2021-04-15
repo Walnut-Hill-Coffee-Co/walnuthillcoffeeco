@@ -31,7 +31,10 @@ export default function EventList() {
 
 export const EVENT_QUERY = graphql`
   {
-    allSanityEvent(sort: { fields: eventStart, order: ASC }) {
+    allSanityEvent(
+      sort: { fields: eventStart, order: ASC }
+      filter: { eventInPast: { eq: false } }
+    ) {
       edges {
         node {
           ...EventFragment
