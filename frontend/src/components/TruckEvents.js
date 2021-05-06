@@ -15,14 +15,15 @@ export default function TruckEvents() {
   const {
     allSanityEvent: { nodes },
   } = useStaticQuery(TRUCK_EVENT_QUERY);
-  console.log(nodes);
+  console.log(nodes.length);
   return (
     <Container as="section">
-      <TruckEventStyles>
+      {nodes.length> 0 && <TruckEventStyles>
         {nodes?.map((node, index) => (
           <EventCard key={node.id} {...node} />
         ))}
-      </TruckEventStyles>
+      </TruckEventStyles>}
+        {nodes.length ===0 && <p>No currently scheduled events...</p>}
     </Container>
   );
 }

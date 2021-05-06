@@ -10,7 +10,7 @@ import { customComponents } from "./CustomComponent";
 export default function BookingForm() {
   const data = useStaticQuery(graphql`
     query BOOKING_FORM {
-      formiumForm(slug: { eq: "booking-form" }) {
+      formiumForm(id: { eq: "6075e4940304f100014f6c86" }) {
         id
         name
         slug
@@ -18,6 +18,7 @@ export default function BookingForm() {
         schema
         createAt
         version
+        updateAt
       }
     }
   `);
@@ -30,7 +31,7 @@ export default function BookingForm() {
         data={data.formiumForm}
         onSubmit={async (values) => {
           // Send values to formium
-          await formium.submitForm("booking-form", values);
+          await formium.submitForm("new-booking-form", values);
           alert("Success");
         }}
       />

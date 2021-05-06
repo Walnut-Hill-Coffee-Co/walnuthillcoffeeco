@@ -33,7 +33,7 @@ export default function ServiceTemplate({  data, location }) {
       <SEO title={sanityService?.title} description={sanityService?.excerpt} />
       {process.env.NODE_ENV === 'production' ? <PageUnderConstruction />:
       <>
-        <HeroStyles>
+        <HeroStyles isHomePage={location.pathname === '/'}>
           <GatsbyImage image={imageData} alt={sanityService?._rawFeaturedImage?.image?.alt || ''} />
           <div className="inner-content service">
             <h1>{title}</h1>

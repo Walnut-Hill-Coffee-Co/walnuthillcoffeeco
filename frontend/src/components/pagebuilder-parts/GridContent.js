@@ -9,8 +9,10 @@ export const ServiceStyles = styled.div`
   margin: 6rem auto;
   display: grid;
   /* column-gap: 4rem; */
-  margin-top: 40vh;
+  margin-top: ${p => p.isHomePage ? '40vh' : '20vh'};
   min-height: 60vh;
+
+
 
   &:last-of-type {
     column-gap: 4rem;
@@ -66,9 +68,10 @@ export const ServiceStyles = styled.div`
 
 export default function GridContent(props) {
   const gridColumnCount = props.columns.length;
+  console.log(props)
   return (
     <Container>
-      <ServiceStyles cols={gridColumnCount}>
+      <ServiceStyles isHomePage={props.location.pathname === '/'} cols={gridColumnCount}>
         {props.columns.map((block, index) => {
 
           switch (block?._type) {

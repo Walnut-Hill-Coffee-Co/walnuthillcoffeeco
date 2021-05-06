@@ -11,7 +11,7 @@ export default function Hero(props) {
 
   return (
     <>
-      <HeroStyles>
+      <HeroStyles isHomePage={props.location.pathname === '/'}>
         <Figure loading="eager" node={props?._rawIllustration?.image} />
         {/* <GatsbyImage image={image} loading="eager" alt="friends enjoying coffee" /> */}
         <div className="inner-content">
