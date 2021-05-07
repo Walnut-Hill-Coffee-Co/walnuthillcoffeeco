@@ -31,7 +31,7 @@ export default function ServiceTemplate({  data, location }) {
   return (
     <Layout>
       <SEO title={sanityService?.title} description={sanityService?.excerpt} />
-      {process.env.NODE_ENV === 'production' ? <PageUnderConstruction />:
+      {/* {process.env.NODE_ENV === 'production' ? <PageUnderConstruction />: */}
       <>
         <HeroStyles isHomePage={location.pathname === '/'}>
           <GatsbyImage image={imageData} alt={sanityService?._rawFeaturedImage?.image?.alt || ''} />
@@ -46,7 +46,7 @@ export default function ServiceTemplate({  data, location }) {
             )
           })}
         </ServiceTemplateStyles>
-      </> }
+      </> {/* } */}
     </Layout>
   );
 }

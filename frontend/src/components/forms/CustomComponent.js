@@ -1,17 +1,19 @@
-import { defaultComponents } from "@formium/react";
+
 import React from "react";
 
 export const customComponents = {
   ...defaultComponents,
   Header: () => null,
   FieldWrapper: (props) => <>{props.children}</>,
-  FormControl: (props) => (
+  FormControl: (props) => {
+    return (
+
     <div className="form-control">
       <label htmlFor={props.labelFor}>{props.label}</label>
       {props.children}
       <small>{props.error}</small>
     </div>
-  ),
+  )},
   Radio: ({ label, ...props }) => {
     return (
       <label className="radio">
@@ -23,4 +25,15 @@ export const customComponents = {
       </label>
     );
   },
+  TextInput: (props) => {
+
+    return (
+      <input {...props} />
+    )
+  },
+  TextArea: (props) => {
+    return (
+      <textarea {...props}></textarea>
+    )
+  }
 };
