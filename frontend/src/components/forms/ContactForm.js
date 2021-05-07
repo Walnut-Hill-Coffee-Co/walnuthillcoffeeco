@@ -20,20 +20,17 @@ const validationSchema = Yup.object({
   message: Yup.string().required("Please leave a brief message").trim(),
 });
 
-const TextInput = ({label, ...props}) => {
-  const [field, meta, helpers]= useField(props)
+const TextInput = ({ label, ...props }) => {
+  const [field, meta, helpers] = useField(props);
   return (
-    <>
-      <label>
-        {label}
-        <input {...field} {...props} />
-      </label>
-      {meta.touched && meta.error && (
-        <div className="error">{meta.error}</div>
-      )}
-    </>
-  )
-}
+    <div className="form-control">
+      <label htmlFor={props.name}>{label}</label>
+      <Field {...props}  />
+
+      {meta.touched && meta.error && <small className="error">{meta.error}</small>}
+    </div>
+  );
+};
 
 export default function ContactForm() {
   return (
@@ -42,7 +39,7 @@ export default function ContactForm() {
         fullName: "",
         email: "",
         phone: "",
-        subject: "",
+        subject: "Other",
         message: "",
       }}
       onSubmit={(data, { setSubmitting, resetForm }) => {
@@ -79,8 +76,47 @@ export default function ContactForm() {
             >
               <input type="hidden" name="form-name" value="contact-form" />
               <input type="hidden" name="bot-field" />
-              <TextInput name="fullName" type="text" label="Name" id="fullName" placeholder="Full Name"  />
-
+              <TextInput
+                name="fullName"
+                type="text"
+                label="Name"
+                id="fullName"
+                placeholder="Full Name"
+              />
+              <TextInput
+                name="email"
+                type="email"
+                label="Email"
+                id="email"
+                placeholder="Please enter your email"
+              />
+              <div className="form-control" id="subject-radio-group">Subject</div>
+              <div role="group" aria-labelledby="subject-radio-group">
+                <label>
+                  <Field type="radio" name="subject" value="Coffee Truck" />
+                  Coffee Truck
+                </label>
+                <label>
+                  <Field type="radio" name="subject" value="Venue Rental" />
+                  Venue Rental
+                </label>
+                <label>
+                  <Field type="radio" name="subject" value="Other" />
+                  Other
+                </label>
+              </div>
+              <TextInput
+                id="message"
+                name="message"
+                as="textarea"
+                rows="7"
+                label="Message"
+                type="text"
+                className="message"
+                values={values.message}
+                placeholder="Please leave us a brief, but detailed message."
+              />
+              <button type="submit">Send</button>
             </Form>
           </FormStyles>
         );

@@ -81,6 +81,10 @@ export const FormStyles = styled.div`
     }
   }
 
+  .message {
+    resize: none;
+  }
+
   .radio {
     font-size: 1rem;
     color: var(--green);
