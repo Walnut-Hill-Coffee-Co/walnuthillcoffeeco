@@ -10,7 +10,6 @@ import PortableText from "./PortableText";
 import { FooterStyles, MissionStyles } from "./styles/Footer";
 import UniversalLink from "./UniversalLink";
 
-
 const availableIcons = {
   facebook: <FaFacebook />,
   twitter: <AiFillTwitterCircle />,
@@ -18,7 +17,7 @@ const availableIcons = {
   instagram: <AiFillInstagram />,
   snapchat: <FaSnapchat />,
 };
-export default function Footer() {
+export default function Footer({ isSubmissionConfirmation }) {
   const {
     mission,
     sanitySiteSettings: {
@@ -53,18 +52,28 @@ export default function Footer() {
     }
   `);
 
-  const missionImage = getImage(mission)
-  const footerLogo = getGatsbyImageData(_rawFooterLogo.asset, {maxWidth: 300}, sanity)
+  const missionImage = getImage(mission);
+  const footerLogo = getGatsbyImageData(
+    _rawFooterLogo.asset,
+    { maxWidth: 300 },
+    sanity
+  );
+  console.log(isSubmissionConfirmation)
   return (
     <>
-      <MissionStyles>
-        <GatsbyImage image={missionImage} alt="Coffee beans and ground coffee on a wood countertop" />
-        <div className="mission-content">
-          <article>
-            <PortableText blocks={_rawMissionStatement} />
-          </article>
-        </div>
-      </MissionStyles>
+      {!isSubmissionConfirmation && (
+        <MissionStyles>
+          <GatsbyImage
+            image={missionImage}
+            alt="Coffee beans and ground coffee on a wood countertop"
+          />
+          <div className="mission-content">
+            <article>
+              <PortableText blocks={_rawMissionStatement} />
+            </article>
+          </div>
+        </MissionStyles>
+      )}
       <FooterStyles>
         <div className="inner-content">
           <GatsbyImage image={footerLogo} alt="" />
@@ -81,7 +90,9 @@ export default function Footer() {
           </div>
           <div className="contact-box">
             <h5>Get in touch.</h5>
-            <Button buttonStyle="orange" to="/contact/">Contact us</Button>
+            <Button buttonStyle="orange" to="/contact/">
+              Contact us
+            </Button>
             <PortableText blocks={_rawAddress} />
           </div>
         </div>

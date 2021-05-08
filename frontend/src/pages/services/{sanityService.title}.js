@@ -29,7 +29,7 @@ export default function ServiceTemplate({  data, location }) {
 
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title={sanityService?.title} description={sanityService?.excerpt} />
       {/* {process.env.NODE_ENV === 'production' ? <PageUnderConstruction />: */}
       <>

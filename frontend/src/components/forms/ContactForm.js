@@ -1,36 +1,11 @@
-import { Field, Form, Formik, useField } from "formik";
+import { Field, Form, Formik } from "formik";
 import { navigate } from "gatsby";
 import _isEmpty from "lodash.isempty";
-import * as Yup from "yup";
 import { encodeFormData } from "../../lib/encodeFormData";
 import React from "react";
 import { FormStyles } from "../styles/FormStyles";
-
-const validationSchema = Yup.object({
-  fullName: Yup.string()
-    .required("Name is required.")
-    .min(3, "Name must be at least 3 characters.")
-    .max(30, "Name is too long"),
-  email: Yup.string().email().required("Please enter your email"),
-  phone: Yup.string()
-    .max(10)
-    .min(7)
-    .required("Please enter a valid U.S phone number"),
-  subject: Yup.string(),
-  message: Yup.string().required("Please leave a brief message").trim(),
-});
-
-const TextInput = ({ label, ...props }) => {
-  const [field, meta, helpers] = useField(props);
-  return (
-    <div className="form-control">
-      <label htmlFor={props.name}>{label}</label>
-      <Field {...props}  />
-
-      {meta.touched && meta.error && <small className="error">{meta.error}</small>}
-    </div>
-  );
-};
+import { validationSchema } from "../../lib/validationSchema";
+import { TextInput } from "./TextInput";
 
 export default function ContactForm() {
   return (
@@ -50,7 +25,7 @@ export default function ContactForm() {
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encodeFormData({ "form-name": "contact-form", ...data }),
         })
-          .then(() => navigate("/thank-you", { replace: true }))
+          .then(() => navigate("/thank-you/", { replace: true }))
           .catch((error) =>
             alert(
               "Oops.. Something went wrong. Please contact us with this error message: " +
@@ -64,6 +39,7 @@ export default function ContactForm() {
       validationSchema={validationSchema}
     >
       {({ values, isSubmitting, errors }) => {
+        console.log({isSubmitting, errors})
         return (
           <FormStyles>
             <h2>Get in touch!</h2>
@@ -90,19 +66,44 @@ export default function ContactForm() {
                 id="email"
                 placeholder="Please enter your email"
               />
-              <div className="form-control" id="subject-radio-group">Subject</div>
-              <div role="group" aria-labelledby="subject-radio-group">
-                <label>
-                  <Field type="radio" name="subject" value="Coffee Truck" />
-                  Coffee Truck
+              <TextInput
+                name="phone"
+                type="text"
+                label="Phone"
+                id="phone"
+                placeholder="Please enter your phone number."
+              />
+              <div
+                className="form-control radio--wrapper"
+                id="subject-radio-group"
+              >
+                Subject
+              </div>
+              <div
+                role="group"
+                className="form-control__radio"
+                aria-labelledby="subject-radio-group"
+              >
+                <label className="radio">
+                  <span className="radio__input">
+                    <Field type="radio" name="subject" value="Coffee Truck" />
+                    <span className="radio__control"></span>
+                  </span>
+                  <span className="radio__label">Coffee Truck</span>
                 </label>
-                <label>
-                  <Field type="radio" name="subject" value="Venue Rental" />
-                  Venue Rental
+                <label className="radio">
+                  <span className="radio__input">
+                    <Field type="radio" name="subject" value="Venue Rental" />
+                    <span className="radio__control"></span>
+                  </span>
+                  <span className="radio__label">Venue Rental</span>
                 </label>
-                <label>
-                  <Field type="radio" name="subject" value="Other" />
-                  Other
+                <label className="radio">
+                  <span className="radio__input">
+                    <Field type="radio" name="subject" value="Other" />
+                    <span className="radio__control"></span>
+                  </span>
+                  <span className="radio__label">Other</span>
                 </label>
               </div>
               <TextInput
@@ -116,7 +117,13 @@ export default function ContactForm() {
                 values={values.message}
                 placeholder="Please leave us a brief, but detailed message."
               />
-              <button type="submit">Send</button>
+              <button
+                className={isSubmitting || !_isEmpty(errors) ? "disabled" : ""}
+                disabled={isSubmitting || !_isEmpty(errors)}
+                type="submit"
+              >
+                Submit
+              </button>
             </Form>
           </FormStyles>
         );

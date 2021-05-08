@@ -3,7 +3,7 @@ import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import SEO from "./SEO";
-export default function Layout({ children }) {
+export default function Layout({ children, location }) {
   return (
     <>
       <SEO title="Home" />
@@ -25,8 +25,8 @@ export default function Layout({ children }) {
             --borderRadius: 5px;
             --headingFont: "ivypresto-display";
             --lineHeight: 1.75;
-            --fontSize7: .8rem;
-            --fontSize8: .64rem;
+            --fontSize7: 0.8rem;
+            --fontSize8: 0.64rem;
             --fontStackHeading: var(--headingFont), Cambria, "Hoefler Text",
               Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times,
               "Times New Roman", serif;
@@ -110,9 +110,9 @@ export default function Layout({ children }) {
           }
         `}
       />
-      <Header />
+      <Header isSubmissionConfirmation={location.pathname === "/thank-you/"} />
       <main>{children}</main>
-      <Footer />
+      <Footer isSubmissionConfirmation={location.pathname === "/thank-you/"} />
       <svg width="0" height="0">
         <defs>
           <clipPath id="myCurve" clipPathUnits="objectBoundingBox">

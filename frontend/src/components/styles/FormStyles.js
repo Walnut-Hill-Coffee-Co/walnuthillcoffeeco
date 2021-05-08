@@ -19,7 +19,7 @@ export const FormStyles = styled.div`
       }
     }
   }
- >  h2 {
+  > h2 {
     margin: 2rem auto 0;
     text-align: center;
   }
@@ -37,6 +37,12 @@ export const FormStyles = styled.div`
       border-radius: var(--borderRadius);
       display: block;
       cursor: pointer;
+
+      &.disabled {
+        opacity: .7;
+        pointer-events: none;
+        cursor: unset;
+      }
     }
   }
 
@@ -45,7 +51,14 @@ export const FormStyles = styled.div`
     grid-template-rows: var(--lineHeight) 1fr;
     margin-bottom: 2rem;
 
-    > label {
+    &__radio {
+      margin-bottom: 2rem;
+    }
+    &.radio--wrapper {
+      margin-bottom: 0;
+    }
+    > label,
+    &.radio--wrapper {
       font-weight: 600;
       color: var(--blue);
       font-family: var(--fontStackBody);
@@ -90,14 +103,14 @@ export const FormStyles = styled.div`
     color: var(--green);
     display: grid;
     grid-template-columns: min-content auto;
-    grid-gap: .5em;
+    grid-gap: 0.5em;
 
-&:focus-within {
-  .radio__label {
-    transform: scale(1.02);
-    opacity: 1;
-  }
-}
+    &:focus-within {
+      .radio__label {
+        transform: scale(1.02);
+        opacity: 1;
+      }
+    }
 
     &__input {
       display: flex;
@@ -108,20 +121,20 @@ export const FormStyles = styled.div`
         height: 0;
 
         &:focus + .radio__control {
-          box-shadow: 0 0 0 0.05em #fff,  0 0 0.15em .1em currentColor;
+          box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
         }
       }
 
       input + .radio__control::before {
-        content: '';
-        width: .5em;
-        height: .5em;
-        box-shadow: inset 1.75em .5em currentColor;
+        content: "";
+        width: 0.5em;
+        height: 0.5em;
+        box-shadow: inset 1.75em 0.5em currentColor;
         border-radius: 50%;
         transition: 180ms transform ease-in-out;
         transform: scale(0);
       }
-      input:checked + .radio__control::before{
+      input:checked + .radio__control::before {
         transform: scale(1);
       }
     }
@@ -137,7 +150,7 @@ export const FormStyles = styled.div`
 
     &__label {
       transition: 180ms all ease-in-out;
-      opacity: .8;
+      opacity: 0.8;
       color: var(--black);
     }
   }

@@ -22,7 +22,7 @@ export default function PageTemplate({
   //   );
   // }
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO
         bodyClass={newLocation ? newLocation : "home-page"}
         title={_rawOpenGraph?.title || title}

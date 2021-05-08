@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -19,6 +20,15 @@ const StyledHeader = styled.header`
   z-index: 500;
   align-items: start;
   padding: 0 4rem;
+  ${({hasDarkBackground}) => hasDarkBackground && css`
+    .gatsby-image-wrapper {
+      filter: invert();
+    }
+
+    > nav > ul li a {
+      color: var(--black) !important;
+    }
+  `}
   > nav {
     /* flex: 1; */
     margin-left: 1rem;
@@ -66,8 +76,8 @@ const StyledHeader = styled.header`
     }
   }
 `;
-export default function Header() {
-
+export default function Header({isSubmissionConfirmation}) {
+  console.log(isSubmissionConfirmation)
    const {sanitySiteSettings, sanityNavigationMenu: {_rawItems}} = useStaticQuery(graphql`
     {
       sanitySiteSettings(_id: {eq: "siteSettings"}) {
@@ -87,7 +97,7 @@ export default function Header() {
     }
   `)
   return (
-    <StyledHeader>
+    <StyledHeader hasDarkBackground={isSubmissionConfirmation}>
       <UniversalLink to="/">
         <Figure node={sanitySiteSettings?.headerLogo} alt={sanitySiteSettings.title} gatsbyImageArgs={{width: 200, layout: 'constrained'}} />
       </UniversalLink>
