@@ -6,7 +6,7 @@ import { sanity } from "../../../client-config";
 import { Container } from "../styles/Container";
 
 const ImageGalleryStyles = styled.div`
-  margin-top: 40vh;
+  margin-top: 20vh;
   margin-bottom: 20vh;
   display: grid;
   gap: 2rem;

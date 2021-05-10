@@ -4,11 +4,12 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Figure from './Figure';
 import UniversalLink from './UniversalLink';
-
+import MenuToggle from './menus/MenuToggle'
+import PrimaryMenu from './menus/PrimaryMenu';
 
 const StyledHeader = styled.header`
   max-width: var(--maxWidth);
-  margin: 2rem auto 0;
+  margin: 2rem auto 4rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -19,7 +20,7 @@ const StyledHeader = styled.header`
   width: 100%;
   z-index: 500;
   align-items: start;
-  padding: 0 4rem;
+  padding: 0 2rem;
   ${({hasDarkBackground}) => hasDarkBackground && css`
     .gatsby-image-wrapper {
       filter: invert();
@@ -35,7 +36,7 @@ const StyledHeader = styled.header`
     .nav-link__active {
       color: var(--orange);
     }
-    > ul {
+     ul {
       justify-content: end;
       margin: 0;
       margin-top: 1rem;
@@ -75,10 +76,13 @@ const StyledHeader = styled.header`
       }
     }
   }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 4rem
+  }
 `;
 export default function Header({isSubmissionConfirmation}) {
-  console.log(isSubmissionConfirmation)
-   const {sanitySiteSettings, sanityNavigationMenu: {_rawItems}} = useStaticQuery(graphql`
+   const {sanitySiteSettings} = useStaticQuery(graphql`
     {
       sanitySiteSettings(_id: {eq: "siteSettings"}) {
         title
@@ -90,10 +94,7 @@ export default function Header({isSubmissionConfirmation}) {
           }
         }
       }
-      sanityNavigationMenu(title: {eq: "Primary Navigation"}) {
-        id
-        _rawItems(resolveReferences: {maxDepth: 10})
-      }
+
     }
   `)
   return (
@@ -101,16 +102,7 @@ export default function Header({isSubmissionConfirmation}) {
       <UniversalLink to="/">
         <Figure node={sanitySiteSettings?.headerLogo} alt={sanitySiteSettings.title} gatsbyImageArgs={{width: 200, layout: 'constrained'}} />
       </UniversalLink>
-      <nav>
-        <ul>
-          {_rawItems.map(({ _key, route, sitePageRoute, link, title }) => {
-            return (
-            <li key={_key}>
-              <UniversalLink activeClassName="nav-link__active" to={sitePageRoute?.slug?.current || route || link}>{title}</UniversalLink>
-            </li>
-          )})}
-        </ul>
-      </nav>
+      <PrimaryMenu />
     </StyledHeader>
   );
 }

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 export const MissionStyles = styled.section`
-  min-height: 70vh;
+  min-height: 50vh;
+  max-height: 55vh;
   margin-top: 10rem;
   position: relative;
   background: rgba(0, 0, 0, 0.4);
@@ -13,7 +14,8 @@ export const MissionStyles = styled.section`
   }
 
   > .mission-content {
-    min-height: 70vh;
+    min-height: 50vh;
+    max-height: 55vh;
     position: relative;
     width: 100%;
     color: white;
@@ -99,7 +101,7 @@ export const FooterStyles = styled.footer`
         align-items: center;
         font-size: 3rem;
         color: var(--orange);
-        transform: color 200ms ease;
+        transition: color 200ms ease;
         &:hover, &:focus {
           color: var(--tan);
         }

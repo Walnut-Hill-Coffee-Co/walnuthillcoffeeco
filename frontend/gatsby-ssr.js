@@ -5,3 +5,5 @@ const HeadComponents = [<link key="font-families" rel="stylesheet" href="https:/
 export const onRenderBody = ({ setHeadComponents }, pluginOptions) => {
   setHeadComponents(HeadComponents);
 };
+
+export {wrapRootElement} from './gatsby-browser'
