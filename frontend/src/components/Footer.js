@@ -58,7 +58,7 @@ export default function Footer({ isSubmissionConfirmation }) {
     { maxWidth: 300 },
     sanity
   );
-  console.log(isSubmissionConfirmation)
+  console.log(isSubmissionConfirmation);
   return (
     <>
       {!isSubmissionConfirmation && (
@@ -93,6 +93,9 @@ export default function Footer({ isSubmissionConfirmation }) {
             <Button buttonStyle="orange" to="/contact/">
               Contact us
             </Button>
+            <div style={{marginTop: `2rem`}}>
+              <a style={{color: `var(--white)`}} href="tel:+1-931-313-5472">931-313-5472</a>
+            </div>
             <PortableText blocks={_rawAddress} />
           </div>
         </div>

@@ -11,7 +11,7 @@ export const ServiceStyles = styled.div`
   /* column-gap: 4rem; */
   margin-top: ${p => p.isHomePage ? '40vh' : '20vh'};
   min-height: 60vh;
-
+  row-gap: 4rem;
 
 
   &:last-of-type {

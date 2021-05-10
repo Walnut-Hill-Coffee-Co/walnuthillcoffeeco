@@ -7,13 +7,17 @@ export default {
   },
   fields: [
     {
-      name: 'caption',
+      name: 'objectFit',
       type: 'string',
-      title: 'Caption',
+      title: 'Object Fit',
+
       options: {
-        isHighlighted: true
+        list: ["cover", "contain"],
+        layout: 'radio',
+        direction: 'horizontal'
       }
     },
+
     {
       name: 'alt',
       type: 'string',
