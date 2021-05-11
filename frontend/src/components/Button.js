@@ -20,6 +20,7 @@ const ButtonStyles = styled(UniversalLink)`
     border: 0;
     cursor: pointer;
     box-shadow: var(--bs);
+    z-index: auto;
 
     &--primary {
       background: var(--green);

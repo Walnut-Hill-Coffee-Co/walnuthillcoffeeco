@@ -34,9 +34,9 @@ export default function Layout({ children, location }) {
               "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
               "Helvetica Neue", sans-serif;
             box-sizing: border-box;
-            --zIndex: 100;
-            --zIndexElevated: 200;
-            --zIndexFloating: 300;
+            --zIndex: 0;
+            --zIndexElevated: 100;
+            --zIndexFloating: 200;
 
             @media all and (min-width: 768px) {
               font-size: 112.5%;

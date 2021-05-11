@@ -1,5 +1,6 @@
 
 import { Field, Form, Formik } from "formik";
+import { navigate } from "gatsby";
 import _isEmpty from 'lodash.isempty';
 import React from "react";
 import { encodeFormData } from "../../lib/encodeFormData";
@@ -27,7 +28,7 @@ export default function BookingForm() {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encodeFormData({ "form-name": "contact-form", ...data }),
+          body: encodeFormData({ "form-name": "booking-form", ...data }),
         })
           .then(() => navigate("/thank-you/", { replace: true }))
           .catch((error) =>

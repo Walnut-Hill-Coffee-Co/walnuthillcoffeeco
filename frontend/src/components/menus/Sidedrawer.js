@@ -11,9 +11,10 @@ const SidedrawerStyles = styled(motion.nav)`
   top: 0;
   left: 0;
   height: 100%;
-  width: 32rem;
-  z-index: calc(var(--zIndexFloating) * 4);
-
+  /* width:100%; */
+  max-width: 32rem;
+  /* pointer-events: none; */
+  z-index: calc(var(--zIndexFloating) * 1);
   .logo {
     margin: 2rem auto;
     display: flex;
@@ -21,12 +22,12 @@ const SidedrawerStyles = styled(motion.nav)`
 
   .gatsby-image-wrapper {
     z-index: calc(var(--zIndexFloating) * 5);
-    margin: 2rem ;
+    margin: 2rem;
   }
 
   .background {
-  margin-left:-2rem;
-    z-index: calc(var(--zIndexFloating) * 1);
+    margin-left: -2rem;
+    /* z-index: calc(var(--zIndexFloating) * 1); */
     position: absolute;
     top: 0;
     height: 100%;
@@ -38,7 +39,7 @@ const SidedrawerStyles = styled(motion.nav)`
 
   > .sidedrawer {
     padding: 2.5rem;
-    z-index: calc(var(--zIndexFloating) * 2);
+    /* z-index: calc(var(--zIndexFloating) * 2); */
     position: absolute;
     top: 15rem;
     list-style: none;
@@ -67,7 +68,6 @@ const SidedrawerStyles = styled(motion.nav)`
     }
   }
 `;
-const MenuItem = styled(motion.li)``;
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -79,8 +79,9 @@ const sidebar = {
   }),
   closed: {
     clipPath: "circle(0px at 20px 20px)",
+
     transition: {
-      delay: 0.5,
+      delay: .5,
       type: "spring",
       stiffness: 400,
       damping: 40,
@@ -128,7 +129,8 @@ export default function Sidedrawer({ items }) {
         animate={isOpen ? "open" : "closed"}
         custom={height}
         ref={containerRef}
-        style={{ zIndex: isOpen ? `calc(var(--zIndexFloating)* 2)` : -1 }}
+        layout
+        style={{ zIndex: isOpen ? `calc(var(--zIndexFloating)* 2)` : -1, width: isOpen ? `100%`: 0 }}
       >
         {isOpen && (
           <>
@@ -152,13 +154,20 @@ export default function Sidedrawer({ items }) {
             />
           </>
         )}
-        <motion.div className="background" variants={sidebar} />
+        <motion.div
+          className="background"
+          // style={{ zIndex: isOpen ? `calc(var(--zIndexFloating)* 2)` : -1 }}
+          variants={sidebar}
+        />
         <motion.ul className="sidedrawer" variants={ulVariants}>
           {items.map(({ _key, route, sitePageRoute, link, title }) => (
-            <motion.li onClick={() => toggleOpen()} key={_key} variants={liVariants}>
+            <motion.li
+              onClick={() => toggleOpen()}
+              key={_key}
+              variants={liVariants}
+            >
               <UniversalLink
                 key={_key}
-
                 to={sitePageRoute?.slug?.current || route || link}
               >
                 {title}

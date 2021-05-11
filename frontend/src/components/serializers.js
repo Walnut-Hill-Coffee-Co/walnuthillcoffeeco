@@ -19,7 +19,7 @@ const BlockRenderer = props => {
 const serializers = {
   marks: {
     link: props => {
-      return <UniversalLink to={props.mark.href}>{props.children}</UniversalLink>
+      return <UniversalLink  to={props.mark.href}>{props.children}</UniversalLink>
     },
     center: props => {
       return <span style={{display: 'block',textAlign: `center`, margin:`0 auto`}}>{props.children}</span>
