@@ -1,8 +1,9 @@
 
 import { Field, Form, Formik } from "formik";
+import _isEmpty from 'lodash.isempty';
 import React from "react";
+import { encodeFormData } from "../../lib/encodeFormData";
 import { validationSchema } from "../../lib/validationSchema";
-import _isEmpty from 'lodash.isempty'
 import { FormStyles } from "../styles/FormStyles";
 import { TextInput } from "./TextInput";
 
@@ -42,7 +43,6 @@ export default function BookingForm() {
       validationSchema={validationSchema}
     >
       {({ values, isSubmitting, errors }) => {
-        console.log({ isSubmitting, errors });
         return (
           <FormStyles>
             <h2>Book us for your next event!</h2>

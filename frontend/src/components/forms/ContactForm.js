@@ -39,7 +39,6 @@ export default function ContactForm() {
       validationSchema={validationSchema}
     >
       {({ values, isSubmitting, errors }) => {
-        console.log({isSubmitting, errors})
         return (
           <FormStyles>
             <h2>Get in touch!</h2>

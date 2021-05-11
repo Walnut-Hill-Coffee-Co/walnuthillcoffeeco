@@ -68,7 +68,6 @@ export const ServiceStyles = styled.div`
 
 export default function GridContent(props) {
   const gridColumnCount = props.columns.length;
-  console.log(props)
   return (
     <Container>
       <ServiceStyles isHomePage={props.location.pathname === '/'} cols={gridColumnCount}>

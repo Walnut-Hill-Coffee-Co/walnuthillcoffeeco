@@ -5,7 +5,6 @@ import ContactForm from '../forms/ContactForm';
 import TruckEvents from '../TruckEvents';
 
 export default function UiComponent({location, ...rest}) {
-console.log(rest)
   switch (rest.name) {
     case "eventList":
       return <EventList />

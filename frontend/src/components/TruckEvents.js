@@ -15,7 +15,6 @@ export default function TruckEvents() {
   const {
     allSanityEvent: { nodes },
   } = useStaticQuery(TRUCK_EVENT_QUERY);
-  console.log(nodes.length);
   return (
     <Container as="section">
       {nodes.length> 0 && <TruckEventStyles>

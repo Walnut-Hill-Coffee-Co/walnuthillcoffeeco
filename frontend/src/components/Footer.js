@@ -58,7 +58,6 @@ export default function Footer({ isSubmissionConfirmation }) {
     { maxWidth: 300 },
     sanity
   );
-  console.log(isSubmissionConfirmation);
   return (
     <>
       {!isSubmissionConfirmation && (
