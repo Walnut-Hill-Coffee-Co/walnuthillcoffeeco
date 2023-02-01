@@ -83,13 +83,7 @@ export default function ContactForm() {
                 className="form-control__radio"
                 aria-labelledby="subject-radio-group"
               >
-                <label className="radio">
-                  <span className="radio__input">
-                    <Field type="radio" name="subject" value="Coffee Truck" />
-                    <span className="radio__control"></span>
-                  </span>
-                  <span className="radio__label">Coffee Truck</span>
-                </label>
+
                 <label className="radio">
                   <span className="radio__input">
                     <Field type="radio" name="subject" value="Venue Rental" />
