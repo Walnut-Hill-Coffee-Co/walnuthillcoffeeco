@@ -27,15 +27,13 @@ export default function TruckEvents() {
   );
 }
 
-export const TRUCK_EVENT_QUERY = graphql`
-  {
-    allSanityEvent(
-      filter: { coffeeTruckUsed: { eq: "yes" }, eventInPast: { eq: false } }
-      sort: { fields: eventStart, order: ASC }
-    ) {
-      nodes {
-        ...EventFragment
-      }
+export const TRUCK_EVENT_QUERY = graphql`{
+  allSanityEvent(
+    filter: {coffeeTruckUsed: {eq: "yes"}, eventInPast: {eq: false}}
+    sort: {eventStart: ASC}
+  ) {
+    nodes {
+      ...EventFragment
     }
   }
-`;
+}`;

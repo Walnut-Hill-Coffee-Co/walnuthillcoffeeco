@@ -25,6 +25,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
+    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
